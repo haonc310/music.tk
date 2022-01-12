@@ -1,14 +1,29 @@
 import React from 'react';
+import Menu from './menu';
+import { SiApachekafka } from 'react-icons/si';
 import './sidebar.scss';
-const Sidebar = () => {
+import clsx from 'clsx';
+
+export interface SidebarProps {
+  dropdownMenu: boolean;
+  setDropdownMenu: (value: boolean) => void;
+}
+
+const Sidebar = (props: SidebarProps) => {
+  const { dropdownMenu, setDropdownMenu } = props;
+
   return (
-    <div className="sidebar">
+    <div
+      className={clsx('sidebar', dropdownMenu && 'sidebar-active')}
+    >
       <div className="sidebar-heading">
         <div className="sidebar-logo">
-          <span>Bee</span>
+          <SiApachekafka />
+          <span className="special">Bee</span>
           <span>music</span>
         </div>
       </div>
+      <Menu />
     </div>
   );
 };

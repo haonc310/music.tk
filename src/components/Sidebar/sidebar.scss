@@ -1,15 +1,74 @@
 .sidebar {
+  position: fixed;
+  top: 0;
+  width: 0;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #fff;
+  border-radius: 6rem 0 0 6rem;
+  box-sizing: border-box;
+  z-index: 30;
+  &-active {
+    width: 30rem;
+    padding: 2rem;
+  }
   &-heading {
     padding-top: 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
   &-logo {
+    padding-left: 1.5rem;
+    display: flex;
+    svg {
+      color: #ffc876;
+      font-size: 3rem;
+      margin-right: 0.4rem;
+    }
     span {
       font-size: 2.5rem;
       font-weight: 400;
-      &:nth-child(1) {
+      &.special {
         color: #ffc876;
+      }
+    }
+  }
+}
+
+.menu {
+  margin-top: 4rem;
+  &-title {
+    padding: 0 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.6rem;
+    color: #adaab7;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: #676669;
+      font-size: 1.7rem;
+      text-decoration: none;
+      font-weight: 400;
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      &.activated {
+        background-color: #000000;
+        border-radius: 1rem;
+        color: #fff;
+      }
+      &:hover {
+        background-color: #000000;
+        border-radius: 1rem;
+        color: #fff;
+      }
+      svg {
+        margin-right: 2rem;
+        font-size: 2rem;
       }
     }
   }
