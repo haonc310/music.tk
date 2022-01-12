@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import React from 'react';
 import { RiMenuFoldLine, RiMenuUnfoldLine } from 'react-icons/ri';
+import { ModalTypeEnum } from '../../constants';
 import './header.scss';
-
+import { UseModal } from '../../hooks';
 export interface HeaderProps {
   dropdownMenu: boolean;
   setDropdownMenu: (value: boolean) => void;
 }
 
 const Header = (props: HeaderProps) => {
+  const { toggle } = UseModal();
   const { dropdownMenu, setDropdownMenu } = props;
 
   const IconDropdownMenu = dropdownMenu
@@ -26,7 +28,15 @@ const Header = (props: HeaderProps) => {
         <input type="text" placeholder="Nhập tên ca sĩ, bài hát" />
       </div>
       <div className="header-user">
-        <div className="header-login">
+        <div
+          className="header-login"
+          onClick={() => {
+            toggle({
+              type: ModalTypeEnum.LOGIN,
+              title: 'Đăng nhập',
+            });
+          }}
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"

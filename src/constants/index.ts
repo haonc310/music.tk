@@ -5,6 +5,17 @@ import { MdLibraryMusic } from 'react-icons/md';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { RiProfileLine } from 'react-icons/ri';
 
+export enum ModalTypeEnum {
+  ADD_LIST_MUSIC,
+  LOGIN,
+  REGISTER,
+  EDIT_PLAYLIST,
+  UPLOAD_MUSIC,
+  EDIT_UPLOAD_MUSIC,
+  NULL,
+  OPEN_COMMENT,
+}
+
 export const homeMenu = [
   {
     title: 'Cá nhân',
