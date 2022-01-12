@@ -10,7 +10,7 @@ export interface SidebarProps {
 }
 
 const Sidebar = (props: SidebarProps) => {
-  const { dropdownMenu, setDropdownMenu } = props;
+  const { dropdownMenu } = props;
 
   return (
     <div

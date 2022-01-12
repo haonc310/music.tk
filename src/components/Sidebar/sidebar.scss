@@ -1,16 +1,18 @@
 .sidebar {
   position: fixed;
   top: 0;
-  width: 0;
+  width: 30rem;
   overflow: hidden;
-  height: 100vh;
+  bottom: 0;
   background-color: #fff;
   border-radius: 6rem 0 0 6rem;
   box-sizing: border-box;
   z-index: 30;
+  transform: translateX(-100%);
+  padding: 0 2rem;
+  transition: 0.2s ease-in;
   &-active {
-    width: 30rem;
-    padding: 2rem;
+    transform: translateX(0);
   }
   &-heading {
     padding-top: 2rem;
@@ -71,5 +73,11 @@
         font-size: 2rem;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    top: 8rem;
   }
 }
