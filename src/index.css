@@ -48,11 +48,10 @@ a {
 }
 
 .main .content {
-  overflow-y: hidden;
+  overflow: hidden;
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
-  height: 200vh;
   padding-top: 10rem;
 }
 
@@ -77,4 +76,21 @@ body::-webkit-scrollbar-thumb {
   .main.main-active {
     padding-left: 0;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+.mt-4 {
+  margin-top: 4rem;
 }

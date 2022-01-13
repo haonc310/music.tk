@@ -9,7 +9,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: 0 2rem;
-  background-color: #f4f5fe;
+
+  background-color: #fff;
+  z-index: 20;
   &-active {
     padding: 0 2rem;
     padding-left: 30rem;
@@ -20,12 +22,13 @@
   &-toggle {
     cursor: pointer;
     margin-left: 0rem;
+    z-index: 20;
     svg {
       font-size: 3rem;
     }
   }
   &-login {
-    background-color: #fff;
+    background-color: #f4f5fe;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
@@ -46,6 +49,7 @@
       width: 30rem;
       border-radius: 0.5rem;
       outline: none;
+      background-color: #f4f5fe;
     }
   }
 }
@@ -57,15 +61,8 @@
 }
 
 @media (max-width: 768px) {
-  .header-toggle {
-    position: fixed;
-    top: 7rem;
-    right: 1rem;
-  }
-
   .header {
     &-search {
-      display: block;
       margin-left: 2rem;
       input {
         width: 15rem;
