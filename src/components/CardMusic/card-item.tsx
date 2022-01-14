@@ -3,7 +3,7 @@ import { MdFavoriteBorder } from 'react-icons/md';
 import { RiEyeLine } from 'react-icons/ri';
 import { AiFillHeart, AiOutlinePlayCircle } from 'react-icons/ai';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
-import './card-item.scss';
+import './style.scss';
 
 const CardItem = ({ music }: any) => {
   const formatView = new Intl.NumberFormat('vn');

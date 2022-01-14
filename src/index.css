@@ -76,6 +76,9 @@ body::-webkit-scrollbar-thumb {
   .main.main-active {
     padding-left: 0;
   }
+  .main .content {
+    padding: 2rem 0;
+  }
 }
 
 .cursor-pointer {
