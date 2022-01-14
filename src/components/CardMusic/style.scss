@@ -63,7 +63,7 @@
     font-weight: 500;
   }
   &-info {
-    padding: 1rem;
+    padding: 2rem 1rem;
     box-sizing: border-box;
   }
   &-name {
@@ -83,23 +83,117 @@
   }
   &-like,
   &-view {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    letter-spacing: 0.8px;
     svg {
       margin-right: 0.5rem;
     }
   }
 }
+.music {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0.5rem;
+  &-title {
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  &-image {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+    img {
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
 
-@media (max-width: 768px) {
+      border-radius: 0.5rem;
+    }
+  }
+  &-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2rem;
+    display: none;
+  }
+  &-left {
+    display: flex;
+    max-width: 90%;
+  }
+  &-right {
+    min-width: 2rem;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+  &-name {
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  &-author {
+    color: #01aaed;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  &-info {
+    max-width: 70%;
+  }
+  &-item {
+    box-sizing: border-box;
+    width: 25%;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      background-color: #fff;
+      .music-play {
+        display: block;
+      }
+    }
+  }
+}
+@media (max-width: 1280px) {
+  .music {
+    &-item {
+      width: calc(100% / 3);
+    }
+  }
+}
+@media (max-width: 1024px) {
   .card {
     &-image {
       img {
         max-height: 140px;
         min-height: 140px;
       }
+    }
+  }
+  .music {
+    &-item {
+      width: 50%;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .music {
+    &-item {
+      width: 100%;
     }
   }
 }

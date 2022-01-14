@@ -7,11 +7,18 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 6,
   slidesToScroll: 2,
   autoplaySpeed: 3000,
   autoplay: false,
   responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+      },
+    },
     {
       breakpoint: 1024,
       settings: {

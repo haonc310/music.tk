@@ -1,13 +1,15 @@
 import React from 'react';
-import Favorite from './components/favorite';
-import Trending from './components/trending';
 import Banner from './components/banner';
+import Favorite from './components/favorite';
+import NewMusic from './components/new-music';
+import Trending from './components/trending';
 
 const Home = () => {
   return (
     <div>
       <Banner />
       <Trending />
+      <NewMusic />
       <Favorite />
     </div>
   );
