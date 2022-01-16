@@ -18,7 +18,7 @@ const MainLayout = ({ children }: any) => {
           setDropdownMenu={setDropdownMenu}
         />
         <div className="content">{children}</div>
-        <MusicControl />
+        <MusicControl dropdownMenu={dropdownMenu} />
       </div>
     </>
   );

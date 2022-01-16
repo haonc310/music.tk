@@ -159,12 +159,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &.active {
+      background-color: #fff;
+    }
     &:hover {
       background-color: #fff;
       .music-play {
         display: block;
       }
     }
+  }
+  .music-play.active {
+    display: block;
   }
 }
 @media (max-width: 1280px) {

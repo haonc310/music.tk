@@ -10,7 +10,7 @@ export const RightControl = () => {
     <div className="right-control">
       <MdFavorite
         size="2.5rem"
-        className="control-action m-l-r-1 control-loop"
+        className="control-action m-l-r-1 control-favorite"
       />
       <AiOutlineComment
         size="2.5rem"

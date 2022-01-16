@@ -13,8 +13,14 @@ const NewMusic = () => {
       <h3 className="music-title"> Mới Phát Hành</h3>
       {data.length && !loading ? (
         <div className="music">
-          {data.map((music, index) => (
-            <MusicItem music={music} key={index} />
+          {data.map((music: any, index) => (
+            <MusicItem
+              music={music}
+              key={index}
+              index={index}
+              data={data}
+              _id={music._id}
+            />
           ))}
         </div>
       ) : (

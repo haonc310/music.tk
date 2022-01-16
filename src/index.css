@@ -122,3 +122,10 @@ body::-webkit-scrollbar-thumb {
 .m-l-r-1 {
   margin: 0 1rem;
 }
+
+.absolute {
+  position: absolute;
+}
+.transform-50-center {
+  transform: translate(-50%, -50%);
+}
