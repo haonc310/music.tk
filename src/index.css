@@ -84,6 +84,12 @@ body::-webkit-scrollbar-thumb {
 .cursor-pointer {
   cursor: pointer;
 }
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
 .mb-2 {
   margin-bottom: 2rem;
 }
@@ -96,4 +102,23 @@ body::-webkit-scrollbar-thumb {
 }
 .mt-4 {
   margin-top: 4rem;
+}
+.h-32 {
+  height: 12rem;
+}
+.w-12 {
+  width: 5rem;
+}
+.h-12 {
+  height: 5rem;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.w-full {
+  width: 100%;
+}
+.m-l-r-1 {
+  margin: 0 1rem;
 }

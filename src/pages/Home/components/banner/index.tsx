@@ -4,57 +4,25 @@ import { bannerDefault } from '../../../../constants';
 import './banner.scss';
 
 const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  autoplaySpeed: 1000,
-  autoplay: false,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
+  mode: 'free-snap',
+  snapMode: 'snap',
+  spacing: 10,
+  slidesPerView: 2,
+  autoplay: true,
+  loop: true,
+  time: 1000,
+  breakpoints: {
+    '(max-width: 992px)': {
+      slidesPerView: 1,
     },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 420,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+  },
 };
 const Banner = () => {
   return (
     <div className="banner mt-2">
       <CarouselProvider settings={settings}>
         {bannerDefault.map((image, index) => (
-          <div key={index} className="banner-item">
+          <div key={index} className="banner-item keen-slider__slide">
             <img src={image} alt="" />
           </div>
         ))}

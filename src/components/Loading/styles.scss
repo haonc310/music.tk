@@ -1,0 +1,64 @@
+.wrapper__loading {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.loading__card {
+  max-width: initial;
+  width: 100%;
+  background: #3e3f44;
+  padding: 1.5rem 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #3e3f44;
+  box-sizing: border-box;
+}
+.loading__card {
+  border-radius: inherit;
+  border-radius: 1rem;
+}
+.loading__card .loading-header .img {
+  height: inherit;
+  background: rgba(33, 33, 42, 255);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.loading__card .loading-header .img::before {
+  background-size: 65rem 60rem;
+}
+.loading__card .line {
+  background: rgba(33, 33, 42, 255);
+  border-radius: 1rem;
+  height: 1.3rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading__card .loading-header .img::before,
+.loading__card .line::before {
+  position: absolute;
+  top: 0;
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(33, 33, 42, 255) 0%,
+    rgba(0, 0, 0, 0.082) 20%,
+    rgba(33, 33, 42, 255) 40%,
+    rgba(0, 0, 0, 0.082) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 450px 400px;
+  animation: shimmer 1s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -450px 0;
+  }
+  100% {
+    background-position: 450px 0;
+  }
+}

@@ -1,14 +1,25 @@
 import React from 'react';
+import { AiFillHeart, AiOutlinePlayCircle } from 'react-icons/ai';
+import { CgPlayPauseO } from 'react-icons/cg';
+import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { MdFavoriteBorder } from 'react-icons/md';
 import { RiEyeLine } from 'react-icons/ri';
-import { AiFillHeart, AiOutlinePlayCircle } from 'react-icons/ai';
-import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+import { UseMusic } from '../../hooks';
 import './style.scss';
 
-const CardItem = ({ music }: any) => {
+const CardItem = ({ music, data, index, _id }: any) => {
   const formatView = new Intl.NumberFormat('vn');
+  const tempData = { data, index, _id };
+
+  const {
+    handlePausePlayClick,
+    handleOnIndexMusic,
+    playing,
+    _id_music,
+  } = UseMusic();
+
   return (
-    <div className="card">
+    <div className="card keen-slider__slide">
       <div className="card-image">
         <img src={music.image_music} alt="" />
         <div className="overlay">
@@ -16,7 +27,21 @@ const CardItem = ({ music }: any) => {
             <AiFillHeart />
           </div>
           <div className=" cursor-pointer overlay-play">
-            <AiOutlinePlayCircle />
+            {_id === _id_music ? (
+              <>
+                {playing ? (
+                  <CgPlayPauseO onClick={handlePausePlayClick} />
+                ) : (
+                  <AiOutlinePlayCircle
+                    onClick={handlePausePlayClick}
+                  />
+                )}
+              </>
+            ) : (
+              <AiOutlinePlayCircle
+                onClick={() => handleOnIndexMusic(tempData)}
+              />
+            )}
           </div>
           <div className=" cursor-pointer overlay-play">
             <HiOutlineDotsHorizontal />

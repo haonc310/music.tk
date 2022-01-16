@@ -1,13 +1,13 @@
+import { useKeenSlider } from 'keen-slider/react';
 import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
+import 'keen-slider/keen-slider.min.css';
 
 function CarouselProvider({ children, settings }: any) {
+  const [ref] = useKeenSlider<HTMLDivElement>(settings);
   return (
-    <>
-      <Slider {...settings}>{children}</Slider>
-    </>
+    <div ref={ref} className="keen-slider">
+      {children}
+    </div>
   );
 }
 

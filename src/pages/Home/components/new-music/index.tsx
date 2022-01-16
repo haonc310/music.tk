@@ -1,19 +1,25 @@
 import React from 'react';
 import { UseNewMusic } from '../../../../hooks';
 import { MusicItem } from '../../../../components/CardMusic';
+import { ListLoading } from '../../../../components/Loading';
+
 const NewMusic = () => {
   const { resultNewMusic } = UseNewMusic();
-  const { data } = resultNewMusic;
+  const { data, loading } = resultNewMusic;
   console.log(data);
 
   return (
     <div>
       <h3 className="music-title"> Mới Phát Hành</h3>
-      <div className="music mt-4">
-        {data.map((music, index) => (
-          <MusicItem music={music} key={index} />
-        ))}
-      </div>
+      {data.length && !loading ? (
+        <div className="music">
+          {data.map((music, index) => (
+            <MusicItem music={music} key={index} />
+          ))}
+        </div>
+      ) : (
+        <ListLoading />
+      )}
     </div>
   );
 };

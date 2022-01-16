@@ -1,6 +1,5 @@
 .card {
   background-color: #fff;
-  margin: 0 0.5rem;
   position: relative;
   border-radius: 0.5rem;
 
@@ -176,14 +175,6 @@
   }
 }
 @media (max-width: 1024px) {
-  .card {
-    &-image {
-      img {
-        max-height: 140px;
-        min-height: 140px;
-      }
-    }
-  }
   .music {
     &-item {
       width: 50%;
