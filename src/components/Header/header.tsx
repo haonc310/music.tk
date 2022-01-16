@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RiMenuFoldLine, RiMenuUnfoldLine } from 'react-icons/ri';
 import { ModalTypeEnum } from '../../constants';
+import { UseCheckSize, UseModal } from '../../hooks';
 import './header.scss';
-import { UseModal } from '../../hooks';
 export interface HeaderProps {
   dropdownMenu: boolean;
   setDropdownMenu: (value: boolean) => void;
@@ -13,9 +13,18 @@ const Header = (props: HeaderProps) => {
   const { toggle } = UseModal();
   const { dropdownMenu, setDropdownMenu } = props;
 
+  const { width } = UseCheckSize();
+
+  useEffect(() => {
+    if (width < 768) {
+      setDropdownMenu(false);
+    }
+  }, [width]);
+
   const IconDropdownMenu = dropdownMenu
     ? RiMenuFoldLine
     : RiMenuUnfoldLine;
+
   return (
     <div className={clsx('header', dropdownMenu && 'header-active')}>
       <div
