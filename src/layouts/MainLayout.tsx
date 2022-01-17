@@ -13,12 +13,14 @@ const MainLayout = ({ children }: any) => {
         setDropdownMenu={setDropdownMenu}
       />
       <div className={clsx('main', dropdownMenu && 'main-active')}>
-        <Header
-          dropdownMenu={dropdownMenu}
-          setDropdownMenu={setDropdownMenu}
-        />
-        <div className="content">{children}</div>
-        <MusicControl dropdownMenu={dropdownMenu} />
+        <div className="content">
+          <Header
+            dropdownMenu={dropdownMenu}
+            setDropdownMenu={setDropdownMenu}
+          />
+          {children}
+          <MusicControl dropdownMenu={dropdownMenu} />
+        </div>
       </div>
     </>
   );

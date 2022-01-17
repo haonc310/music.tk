@@ -9,9 +9,8 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: 0 2rem;
-
-  background-color: #fff;
-  z-index: 20;
+  background-color: var(--third-color);
+  z-index: 2;
   &-active {
     padding: 0 2rem;
     padding-left: 30rem;
@@ -28,7 +27,7 @@
     }
   }
   &-login {
-    background-color: #f4f5fe;
+    // background-color: var(--third-color);
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
@@ -49,7 +48,7 @@
       width: 30rem;
       border-radius: 0.5rem;
       outline: none;
-      background-color: #f4f5fe;
+      background-color: #fff;
     }
   }
 }

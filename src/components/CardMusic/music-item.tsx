@@ -6,7 +6,7 @@ import { LoadingPlay } from '../Loading';
 import './style.scss';
 
 export const MusicItem = (props: any) => {
-  const { music, data, index, _id } = props;
+  const { music, data, index, _id, style } = props;
   const tempData = { data, index, _id };
   const {
     handlePausePlayClick,
@@ -21,6 +21,7 @@ export const MusicItem = (props: any) => {
         'music-item cursor-pointer',
         _id_music === _id && playing && 'active'
       )}
+      style={style}
     >
       <div className="music-left">
         <div className="music-image">

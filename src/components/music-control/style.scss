@@ -1,6 +1,6 @@
 .music-control {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--third-color);
   bottom: 0;
   right: 0;
   left: 0;
@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 999;
+  z-index: 3;
   padding-left: 32rem;
   transition: 0.2s ease;
   &.full {
@@ -23,7 +23,7 @@
   .drow {
     position: absolute;
     bottom: 100%;
-    background: #fff;
+    background: var(--third-color);
     padding: 0.5rem;
     display: flex;
     justify-content: center;
@@ -162,7 +162,7 @@
 
 .btn-open {
   position: fixed;
-  background-color: red;
+  background-color: #ff3465;
   width: 4rem;
   height: 4rem;
   bottom: 4rem;
