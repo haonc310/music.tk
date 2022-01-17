@@ -4,8 +4,8 @@
   width: 30rem;
   overflow: hidden;
   bottom: 0;
-  background-color: #fff;
-  border-radius: 6rem 0 0 6rem;
+  background-color: var(--third-color);
+  // border-radius: 6rem 0 0 6rem;
   box-sizing: border-box;
   z-index: 30;
 
@@ -65,12 +65,12 @@
       align-items: center;
       padding: 1rem 1.5rem;
       &.activated {
-        background-color: #000000;
+        background-color: #092c3e;
         border-radius: 1rem;
         color: #fff;
       }
       &:hover {
-        background-color: #000000;
+        background-color: #092c3e;
         border-radius: 1rem;
         color: #fff;
       }
@@ -81,7 +81,36 @@
     }
   }
 }
-
+.toggle {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  input {
+    position: relative;
+    width: 6rem;
+    height: 3rem;
+    appearance: none;
+    background-color: #ff3465;
+    border-radius: 1.5rem;
+    transition: 0.5s;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: #fff;
+      transform: scale(1.1);
+    }
+    &:checked::before {
+      left: 3rem;
+    }
+  }
+}
 @media (max-width: 768px) {
   .sidebar {
     border-radius: 0;

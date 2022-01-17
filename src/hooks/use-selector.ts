@@ -5,3 +5,5 @@ export const favoriteStore = (state: RootState) => state.favorite;
 export const trendingStore = (state: RootState) => state.trending;
 export const newMusicStore = (state: RootState) => state.newMusic;
 export const musicStore = (state: RootState) => state.music;
+export const playlistStore = (state: RootState) => state.playlist;
+export const toggleStore = (state: RootState) => state.toggle;

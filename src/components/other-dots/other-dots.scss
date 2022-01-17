@@ -1,0 +1,30 @@
+.other-dots {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #fff;
+  bottom: calc(100% + 1rem);
+  z-index: 5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: none;
+  &-item {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: var(--bg-color);
+    }
+    cursor: pointer;
+    span {
+      font-size: 1.6rem;
+    }
+  }
+}
+.control-favorite:hover {
+  .other-dots {
+    display: block;
+  }
+}

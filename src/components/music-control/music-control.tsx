@@ -6,7 +6,8 @@ import { CenterControl, LeftControl, RightControl } from '.';
 import { UseMusic } from '../../hooks';
 import './style.scss';
 
-export const MusicControl = () => {
+export const MusicControl = (props: any) => {
+  const { dropdownMenu } = props;
   const { dropdownMusic, handleOnDropdownMusic, resultMusic } =
     UseMusic();
 
@@ -27,7 +28,8 @@ export const MusicControl = () => {
         <div
           className={clsx(
             'music-control mobile',
-            dropdownMusic ? 'hidden' : 'active'
+            dropdownMusic ? 'hidden' : 'active',
+            !dropdownMenu && 'full'
           )}
         >
           <div className="drow">

@@ -28,10 +28,25 @@ a {
   display: inline-block;
 }
 .App {
+  --bg-color: #f4f5fe;
+  --third-color: #fff;
+  --hover-color: #092c3e;
   display: flex;
-  background-color: #f4f5fe;
+  background-color: var(--bg-color);
   position: relative;
   box-sizing: border-box;
+  color: #000;
+}
+.App.dark {
+  --bg-color: #092c3e;
+  --third-color: #121212;
+  color: #fff;
+}
+/* .App.dark .header {
+  background-color: var(--bg-color);
+} */
+.App.dark .header input {
+  background-color: #fff;
 }
 
 .main {
@@ -48,7 +63,6 @@ a {
 }
 
 .main .content {
-  overflow: hidden;
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
@@ -121,4 +135,16 @@ body::-webkit-scrollbar-thumb {
 }
 .m-l-r-1 {
   margin: 0 1rem;
+}
+
+.absolute {
+  position: absolute;
+}
+.transform-50-center {
+  transform: translate(-50%, -50%);
+}
+.heading-title {
+  font-size: 1.6rem;
+  text-align: center;
+  padding-top: 3rem;
 }
