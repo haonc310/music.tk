@@ -3,6 +3,7 @@ import CardItem from '../../../../components/CardMusic/card-item';
 import CarouselProvider from '../../../../components/CarouselProvider';
 import { UseFavorite } from '../../../../hooks';
 import { CardLoading } from '../../../../components/Loading';
+import { useTranslation } from 'react-i18next';
 
 const settings = {
   mode: 'free',
@@ -24,12 +25,13 @@ const settings = {
   },
 };
 const Favorite = () => {
+  const { t } = useTranslation();
   const { resultFavorite } = UseFavorite();
   const { data, loading } = resultFavorite;
   return (
     <div className="favorite mb-2">
       <div className="card-music">
-        <h3 className="card-title">Yêu thích</h3>
+        <h3 className="card-title">{t('favorite')}</h3>
         {data.length && !loading ? (
           <CarouselProvider settings={settings}>
             {data.map((music: any, index) => (

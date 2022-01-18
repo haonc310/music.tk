@@ -3,6 +3,7 @@ import { UseTrending } from '../../../../hooks';
 import CardItem from '../../../../components/CardMusic/card-item';
 import CarouselProvider from '../../../../components/CarouselProvider';
 import { CardLoading } from '../../../../components/Loading';
+import { useTranslation } from 'react-i18next';
 
 const settings = {
   mode: 'free',
@@ -25,11 +26,12 @@ const settings = {
 };
 
 const Trending = () => {
+  const { t } = useTranslation();
   const { resultTrending } = UseTrending();
   const { data, loading } = resultTrending;
   return (
     <div className="trending mt-4 mb-4">
-      <h3 className="card-title">Thịnh hành</h3>
+      <h3 className="card-title">{t('popular')}</h3>
       <div className="card-music">
         {data.length && !loading ? (
           <CarouselProvider settings={settings}>
