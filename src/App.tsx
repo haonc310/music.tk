@@ -4,11 +4,15 @@ import SidebarRight from './components/sidebar-right/sidebar-right';
 import { UseToggle } from './hooks';
 import MainLayout from './layouts/MainLayout';
 import ModalComponent from './modal/modal-component';
+import './i18n';
 
 function App() {
-  const { isDark } = UseToggle();
+  let { isDark } = UseToggle();
+
+  let check = JSON.parse(localStorage.getItem('isDark') as string);
+  check = check !== null ? check : isDark;
   return (
-    <div className={clsx('App', isDark && 'dark')}>
+    <div className={clsx('App', check && 'dark')}>
       <MainLayout>
         <RouterControllers />
       </MainLayout>

@@ -12,6 +12,7 @@ const toggleSlice = createSlice({
   reducers: {
     onToggleTheme: (state, action) => {
       state.isDark = action.payload;
+      localStorage.setItem('isDark', JSON.stringify(action.payload));
     },
   },
 });

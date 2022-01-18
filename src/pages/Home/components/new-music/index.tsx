@@ -2,15 +2,16 @@ import React from 'react';
 import { UseNewMusic } from '../../../../hooks';
 import { MusicItem } from '../../../../components/CardMusic';
 import { ListLoading } from '../../../../components/Loading';
+import { useTranslation } from 'react-i18next';
 
 const NewMusic = () => {
+  const { t } = useTranslation();
   const { resultNewMusic } = UseNewMusic();
   const { data, loading } = resultNewMusic;
-  console.log(data);
 
   return (
     <div>
-      <h3 className="music-title"> Mới Phát Hành</h3>
+      <h3 className="music-title"> {t('new-release')}</h3>
       {data.length && !loading ? (
         <div className="music">
           {data.map((music: any, index) => (

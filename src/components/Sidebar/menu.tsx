@@ -1,7 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { homeMenu, musicMenu } from '../../constants';
+
 const Menu = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="menu">
       <div className="menu-list">
@@ -14,12 +18,12 @@ const Menu = () => {
             }
           >
             {<item.Icon />}
-            <span>{item.title}</span>
+            <span>{t(`menu.${item.title}`)}</span>
           </NavLink>
         ))}
       </div>
       <div className="menu-list">
-        <p className="menu-title">Âm nhạc</p>
+        <p className="menu-title">{t('music-title')}</p>
         {musicMenu.map((item, index) => (
           <NavLink
             to={item.href}
@@ -29,7 +33,7 @@ const Menu = () => {
             }
           >
             {<item.Icon />}
-            <span>{item.title}</span>
+            <span>{t(`menu.${item.title}`)}</span>
           </NavLink>
         ))}
       </div>

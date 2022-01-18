@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RiMenuFoldLine, RiMenuUnfoldLine } from 'react-icons/ri';
 import { ModalTypeEnum } from '../../constants';
 import { UseCheckSize, UseModal } from '../../hooks';
@@ -10,6 +11,7 @@ export interface HeaderProps {
 }
 
 const Header = (props: HeaderProps) => {
+  const { t, i18n } = useTranslation();
   const { toggle } = UseModal();
   const { dropdownMenu, setDropdownMenu } = props;
 
@@ -19,7 +21,7 @@ const Header = (props: HeaderProps) => {
     if (width < 768) {
       setDropdownMenu(false);
     }
-  }, [width]);
+  }, [width, setDropdownMenu]);
 
   const IconDropdownMenu = dropdownMenu
     ? RiMenuFoldLine
@@ -34,9 +36,30 @@ const Header = (props: HeaderProps) => {
         <IconDropdownMenu />
       </div>
       <div className="header-search">
-        <input type="text" placeholder="Nhập tên ca sĩ, bài hát" />
+        <input type="text" placeholder={t('search-input')} />
       </div>
       <div className="header-user">
+        <div className="heder-i18n">
+          <div className="switch">
+            <input
+              id="language-toggle"
+              className="check-toggle check-toggle-round-flat"
+              type="checkbox"
+              defaultChecked
+              onChange={(event) => {
+                const { checked } = event.target;
+                if (checked) {
+                  i18n.changeLanguage('en');
+                } else {
+                  i18n.changeLanguage('vn');
+                }
+              }}
+            />
+            <label htmlFor="language-toggle"></label>
+            <span className="on">VN</span>
+            <span className="off">EN</span>
+          </div>
+        </div>
         <div
           className="header-login"
           onClick={() => {
@@ -82,7 +105,7 @@ const Header = (props: HeaderProps) => {
 	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
             ></path>
           </svg>
-          <span> Đăng nhập</span>
+          <span> {t('login')}</span>
         </div>
       </div>
     </div>

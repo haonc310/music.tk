@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SiApachekafka } from 'react-icons/si';
 import { UseToggle } from '../../hooks';
 import Menu from './menu';
@@ -12,7 +12,12 @@ export interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const { dropdownMenu } = props;
-  const { handleToggleTheme, isDark } = UseToggle();
+  let { handleToggleTheme, isDark } = UseToggle();
+  let check = JSON.parse(localStorage.getItem('isDark') as string);
+  useEffect(() => {
+    let check = JSON.parse(localStorage.getItem('isDark') as string);
+    handleToggleTheme(check);
+  }, []);
 
   return (
     <div
@@ -33,9 +38,7 @@ const Sidebar = (props: SidebarProps) => {
         <input
           type="checkbox"
           checked={isDark}
-          onChange={(event) =>
-            handleToggleTheme(event.target.checked)
-          }
+          onChange={(event) => handleToggleTheme(!isDark)}
         />
       </div>
     </div>

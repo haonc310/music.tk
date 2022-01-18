@@ -3,14 +3,15 @@
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
-.loading__card {
+div.loading__card {
   max-width: initial;
   width: 100%;
-  background: #3e3f44;
+  background: var(--bg-skeleton);
   padding: 1.5rem 1rem;
   border-radius: 0.3rem;
-  border: 1px solid #3e3f44;
+  border: 1px solid var(--bg-skeleton);
   box-sizing: border-box;
+  opacity: 0.6;
 }
 .loading__card {
   border-radius: inherit;
@@ -18,7 +19,8 @@
 }
 .loading__card .loading-header .img {
   height: inherit;
-  background: rgba(33, 33, 42, 255);
+  background: var(--bg-skeleton-item);
+  border: 1px solid var(--bg-skeleton-item);
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
@@ -28,27 +30,24 @@
   background-size: 65rem 60rem;
 }
 .loading__card .line {
-  background: rgba(33, 33, 42, 255);
+  background: var(--bg-skeleton-item);
   border-radius: 1rem;
   height: 1.3rem;
   overflow: hidden;
   position: relative;
 }
 
-.loading__card .loading-header .img::before,
-.loading__card .line::before {
+div.loading__card .loading-header .img::before,
+div.loading__card .line::before {
   position: absolute;
   top: 0;
   content: '';
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(
-    to right,
-    rgba(33, 33, 42, 255) 0%,
-    rgba(0, 0, 0, 0.082) 20%,
-    rgba(33, 33, 42, 255) 40%,
-    rgba(0, 0, 0, 0.082) 100%
-  );
+  background-color: var(--bg-skeleton-item);
+  // background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+
+  background-image: var(--linear-animation);
   background-repeat: no-repeat;
   background-size: 450px 400px;
   animation: shimmer 1s linear infinite;
