@@ -15,6 +15,7 @@ export enum ModalTypeEnum {
   EDIT_UPLOAD_MUSIC,
   NULL,
   OPEN_COMMENT,
+  VIDEO_CLIP,
 }
 
 export const homeMenu = [

@@ -92,3 +92,18 @@
     left: 0rem;
   }
 }
+.modal-video {
+  width: 95%;
+  height: 85vh;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .modal-video {
+    height: 50vh;
+  }
+}

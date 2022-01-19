@@ -20,7 +20,7 @@ const initialState: MusicState = {
   id_playlist: '',
   dataRandom: [],
   index: 0,
-  playing: true,
+  playing: false,
   audio: null,
   dropdownMusic: false,
   pagination: {} as any,
@@ -32,6 +32,11 @@ export const musicSlice = createSlice({
   reducers: {
     onPauseMusic: (state: any, action) => {
       state.playing = action.payload;
+      if (action.payload) {
+        state.audio.play();
+      } else {
+        state.audio.pause();
+      }
     },
     onAudio: (state: any, action) => {
       state.audio = action.payload;
@@ -42,6 +47,7 @@ export const musicSlice = createSlice({
       state.data = data[index];
       state._id_music = _id;
       state.dataRandom = data;
+      state.playing = true;
     },
     onDropdownMusic: (state: MusicState, action: any) => {
       state.dropdownMusic = action.payload;

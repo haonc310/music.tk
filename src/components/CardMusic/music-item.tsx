@@ -10,6 +10,7 @@ export const MusicItem = (props: any) => {
   const tempData = { data, index, _id };
   const {
     handlePausePlayClick,
+    handleOnPauseMusic,
     handleOnIndexMusic,
     _id_music,
     playing,

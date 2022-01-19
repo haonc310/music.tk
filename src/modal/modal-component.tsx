@@ -4,6 +4,7 @@ import { ModalTypeEnum } from '../constants';
 import { UseAccount, UseModal } from '../hooks';
 import ModalLogin from './modal-login';
 import ModalRegister from './modal-register';
+import ModalVideo from './modal-video';
 import './style.scss';
 
 const checkModal = (modalType: ModalTypeEnum) => {
@@ -12,6 +13,8 @@ const checkModal = (modalType: ModalTypeEnum) => {
       return ModalLogin;
     case ModalTypeEnum.REGISTER:
       return ModalRegister;
+    case ModalTypeEnum.VIDEO_CLIP:
+      return ModalVideo;
     default:
       return null;
   }

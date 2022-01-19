@@ -42,7 +42,6 @@ export const CenterControl = () => {
     if (audioRef.current.currentTime === audioRef.current.duration) {
       if (!loop && isRandom) {
         handleOnRandomMusic();
-        console.log('random');
         return;
       }
       if (!loop) handleOnNextPrevMusic(index + 1);
@@ -50,8 +49,6 @@ export const CenterControl = () => {
   }, [isRandom, loop, playing, index]);
 
   const handlePausePlayClick = React.useCallback(() => {
-    if (playing) audio?.pause();
-    else audio?.play();
     handleOnPauseMusic(!playing);
   }, [audio, handleOnPauseMusic, playing]);
   const handleTimeSliderChange = React.useCallback(
