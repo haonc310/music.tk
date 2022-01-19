@@ -15,3 +15,10 @@ export const register = createAsyncThunk(
     return response;
   }
 );
+export const getProfile = createAsyncThunk(
+  '/account/profile',
+  async () => {
+    const response = await accountAPI.getProfile();
+    return response;
+  }
+);

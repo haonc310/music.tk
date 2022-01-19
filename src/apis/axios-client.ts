@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import queryString from 'query-string';
 import { REACT_APP_API_URL } from '../constants';
 
@@ -12,11 +12,11 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    // const accessToken = localStorage.accessToken;
-    // if (accessToken) {
-    //   config.headers.Authorization = `Bearer ${accessToken}`;
-    // }
+  (config: any) => {
+    const accessToken = localStorage.accessToken;
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
     return config;
   },
   function error() {
