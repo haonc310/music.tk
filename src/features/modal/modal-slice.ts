@@ -20,9 +20,14 @@ const modalSlice = createSlice({
       state.others = others;
       state._id = _id;
     },
+    closeModal: (state: any, action: PayloadAction<any>) => {
+      state.open = false;
+      state.type = '';
+      state.title = '';
+    },
   },
 });
 
 const { actions, reducer } = modalSlice;
-export const { openModal } = actions;
+export const { openModal, closeModal } = actions;
 export default reducer;

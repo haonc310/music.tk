@@ -1,0 +1,40 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
+import { ModalTypeEnum } from '../../constants';
+import { UseModal } from '../../hooks';
+
+export const NeedLogin = (props: any) => {
+  const { t } = useTranslation();
+  const { toggle } = UseModal();
+  const { item, login, onClick } = props;
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    toggle({
+      type: ModalTypeEnum.LOGIN,
+    });
+  };
+  return (
+    <div>
+      {!login ? (
+        <NavLink
+          to={item.href}
+          className={({ isActive }) =>
+            'nav-link' + (isActive ? ' activated' : '')
+          }
+          style={{ fontSize: '2rem' }}
+        >
+          {<item.Icon />}
+          <span>{t(`menu.${item.title}`)}</span>
+        </NavLink>
+      ) : (
+        <div>
+          <NavLink to="/aaa" onClick={handleClick}>
+            {<item.Icon />}
+            <span>{t(`menu.${item.title}`)}</span>
+          </NavLink>
+        </div>
+      )}
+    </div>
+  );
+};

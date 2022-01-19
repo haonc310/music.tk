@@ -5,6 +5,10 @@ const resources = {
   en: {
     translation: {
       login: 'Login',
+      username: 'Username',
+      register: 'Register',
+      password: 'Password',
+      confirmPassword: 'Confirm Password',
       'search-input': 'Enter the name of the singer, song',
       popular: 'Popular',
       'new-release': 'New release',
@@ -22,10 +26,14 @@ const resources = {
   },
   vn: {
     translation: {
+      username: 'Tên của bạn',
       login: 'Đăng nhập',
+      register: 'Đăng ký',
+      password: 'Mật khẩu',
+      confirmPassword: 'Xác nhận mật khẩu',
       'search-input': 'Nhập tên ca sĩ, bài hàt',
       popular: 'Thịnh hành',
-      'new release': 'Mới phát hành',
+      'new-release': 'Mới phát hành',
       favorite: 'Yêu thích',
       'music-title': 'Âm nhạc',
       menu: {

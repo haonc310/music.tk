@@ -33,6 +33,8 @@ a {
   --hover-color: #092c3e;
   --bg-skeleton: #ccc;
   --bg-skeleton-item: #fff;
+  --bg-modal: #fff;
+  --bg-modal-input: #f4f5fe;
   --linear-animation: linear-gradient(
     to right,
     #f0f0f0 0%,
@@ -49,6 +51,8 @@ a {
   --bg-color: #092c3e;
   --third-color: #121212;
   --bg-skeleton: #3e3f44;
+  --bg-modal-input: #121212;
+  --bg-modal: #000;
   --bg-skeleton-item: rgba(33, 33, 42, 255);
   --linear-animation: linear-gradient(
     to right,
@@ -64,6 +68,12 @@ a {
 } */
 .App.dark .header input {
   background-color: #fff;
+}
+.App.dark .modal-login-group input {
+  color: #fff;
+}
+.App .modal-login-group input {
+  color: #000;
 }
 
 .main {
