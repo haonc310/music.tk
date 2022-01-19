@@ -6,6 +6,7 @@ import { MdFavoriteBorder } from 'react-icons/md';
 import { RiEyeLine } from 'react-icons/ri';
 import { ModalTypeEnum } from '../../constants';
 import { UseModal, UseMusic } from '../../hooks';
+import OtherDots from '../other-dots/other-dots';
 import './style.scss';
 
 const CardItem = ({ music, data, index, _id }: any) => {
@@ -46,13 +47,10 @@ const CardItem = ({ music, data, index, _id }: any) => {
             )}
           </div>
           <div className=" cursor-pointer overlay-play">
-            <HiOutlineDotsHorizontal
-              onClick={() =>
-                toggle({
-                  type: ModalTypeEnum.VIDEO_CLIP,
-                  link_mv: music.link_mv,
-                })
-              }
+            <OtherDots
+              link_mv={music.link_mv}
+              src_music={music.src_music}
+              name_music={music.name_music}
             />
           </div>
         </div>

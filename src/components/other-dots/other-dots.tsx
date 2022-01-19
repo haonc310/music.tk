@@ -1,45 +1,48 @@
 import { Dropdown, Menu } from 'antd';
 import clsx from 'clsx';
+import { saveAs } from 'file-saver';
 import React from 'react';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+import { ModalTypeEnum } from '../../constants';
+import { UseModal } from '../../hooks';
 import './other-dots.scss';
 
-const OtherDots = () => {
+const OtherDots = (props: any) => {
+  const { toggle } = UseModal();
+  const { link_mv, src_music, name_music } = props;
   const menu = (
     <Menu>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          1st menu item
-        </a>
+      <Menu.Item icon={<HiOutlineDotsHorizontal />}>
+        <span onClick={() => saveAs(src_music, `${name_music}.mp3`)}>
+          Tải xuống
+        </span>
       </Menu.Item>
-      <Menu.Item icon={<HiOutlineDotsHorizontal />} disabled>
+      <Menu.Item icon={<HiOutlineDotsHorizontal />}>
+        <span
+          onClick={() =>
+            toggle({
+              type: ModalTypeEnum.VIDEO_CLIP,
+              link_mv,
+            })
+          }
+        >
+          Xem MV
+        </span>
+      </Menu.Item>
+      <Menu.Item icon={<HiOutlineDotsHorizontal />}>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.aliyun.com"
         >
-          2nd menu item (disabled)
+          Thêm vào playlist
         </a>
       </Menu.Item>
-      <Menu.Item disabled>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item (disabled)
-        </a>
-      </Menu.Item>
-      <Menu.Item danger>a danger item</Menu.Item>
     </Menu>
   );
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown overlay={menu} placement="topLeft">
       <HiOutlineDotsHorizontal
         className={clsx('text-white cursor-pointer')}
         size="2.5rem"

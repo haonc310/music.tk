@@ -1,21 +1,19 @@
 import React from 'react';
-import { RiPlayListLine } from 'react-icons/ri';
 import { AiOutlineComment } from 'react-icons/ai';
 import { MdFavorite } from 'react-icons/md';
-import { HiOutlineDotsHorizontal } from 'react-icons/hi';
-import './style.scss';
+import { RiPlayListLine } from 'react-icons/ri';
 import { UseModal, UseMusic, UsePlaylist } from '../../hooks';
 import OtherDots from '../other-dots/other-dots';
-import { ModalTypeEnum } from '../../constants';
+import './style.scss';
 
 export const RightControl = () => {
   const { toggle } = UseModal();
   const { handleToggle, resultPlaylist } = UsePlaylist();
   const { isOpen } = resultPlaylist;
 
-  const { resultMusic, handleOnPauseMusic } = UseMusic();
+  const { resultMusic } = UseMusic();
   const { data } = resultMusic;
-  const { link_mv } = data;
+  const { link_mv, src_music, name_music } = data;
 
   return (
     <div className="right-control">
@@ -32,17 +30,12 @@ export const RightControl = () => {
         className="control-action m-l-r-1 control-loop"
         onClick={() => handleToggle(!isOpen)}
       />
-      {/* <HiOutlineDotsHorizontal
-        size="2.5rem"
-        className="control-action m-l-r-1 control-loop"
-        onClick={() =>
-          toggle({
-            type: ModalTypeEnum.VIDEO_CLIP,
-            link_mv,
-          })
-        }
-      /> */}
-      <OtherDots />
+
+      <OtherDots
+        link_mv={link_mv}
+        src_music={src_music}
+        name_music={name_music}
+      />
     </div>
   );
 };

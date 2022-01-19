@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProfile, login, register } from './patch-api';
+import { notification } from 'antd';
+import { getProfile, login, logout, register } from './patch-api';
 
 const accountSlice = createSlice({
   name: 'account',
@@ -22,9 +23,7 @@ const accountSlice = createSlice({
         state.accessToken = accessToken;
         state.loading = false;
         localStorage.setItem('accessToken', accessToken);
-        // notification.success({
-        //   message: 'Lỗi',
-        // });
+
         // notification.success({
         //   message: 'Đăng nhập thành công',
         // });
@@ -71,6 +70,14 @@ const accountSlice = createSlice({
         state.accessToken = '';
         localStorage.removeItem('accessToken');
       });
+    builder.addCase(logout.fulfilled, (state: any) => {
+      state.data = {};
+      state.accessToken = '';
+      localStorage.removeItem('accessToken');
+      // notification.success({
+      //   message: 'Đăng xuất thành công',
+      // });
+    });
   },
 });
 

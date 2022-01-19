@@ -22,3 +22,7 @@ export const getProfile = createAsyncThunk(
     return response;
   }
 );
+
+export const logout = createAsyncThunk('/account/logout', () => {
+  return;
+});

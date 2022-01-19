@@ -4,14 +4,14 @@ import Favorite from '../pages/Favorite';
 import HomePage from '../pages/Home';
 import Listened from '../pages/Listened';
 import { UseAccount } from '../hooks';
-
+const accessTokenLocal = localStorage.accessToken;
 const RouterControllers = () => {
   const navigate = useNavigate();
   const { resultAccount } = UseAccount();
   const { accessToken } = resultAccount;
 
   useEffect(() => {
-    if (!accessToken) navigate('/');
+    if (!accessToken && !accessTokenLocal) navigate('/');
   }, [accessToken, navigate]);
 
   return (

@@ -1,5 +1,10 @@
 import { useCallback } from 'react';
-import { getProfile, login, register } from '../features/account';
+import {
+  getProfile,
+  login,
+  logout,
+  register,
+} from '../features/account';
 import { useAppDispatch, useAppSelector } from './use-react-redux';
 import { accountStore } from './use-selector';
 
@@ -11,6 +16,7 @@ export const UseAccount = () => {
 
   const handleLogin = (data: any) => dispatch(login(data));
   const handleRegister = (data: any) => dispatch(register(data));
+  const handleLogout = () => dispatch(logout());
   const handleGetProfile = useCallback(
     () => accessTokenLocal && dispatch(getProfile()),
     [dispatch]
@@ -21,5 +27,6 @@ export const UseAccount = () => {
     handleLogin,
     handleRegister,
     handleGetProfile,
+    handleLogout,
   };
 };
