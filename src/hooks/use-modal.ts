@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from './use-react-redux';
-import { openModal } from '../features/modal';
+import { openModal, closeModal } from '../features/modal';
 import { modalStore } from '../hooks/use-selector';
 
 export const UseModal = () => {
@@ -10,9 +10,14 @@ export const UseModal = () => {
     (data) => dispatch(openModal(data)),
     [dispatch]
   );
+  const handleCloseModal = React.useCallback(
+    (data) => dispatch(closeModal(data)),
+    [dispatch]
+  );
 
   return {
     resultModal,
     toggle,
+    handleCloseModal,
   };
 };
