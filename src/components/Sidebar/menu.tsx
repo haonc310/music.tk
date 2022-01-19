@@ -2,22 +2,25 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { homeMenu, musicMenu } from '../../constants';
+import { UseAccount } from '../../hooks';
 import { NeedLogin } from '../../layouts/login';
 
 const Menu = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { resultAccount } = UseAccount();
+  const { accessToken } = resultAccount;
+
   const handlePushPage = (path: string) => {
     navigate(path);
   };
-
-  const accessToken = false;
 
   return (
     <div className="menu">
       <div className="menu-list">
         {homeMenu.map((item, index) => (
           <NeedLogin
+            key={index}
             item={item}
             login={item.href === '/' ? false : !accessToken}
             onClick={() => handlePushPage(item.href)}
@@ -28,6 +31,7 @@ const Menu = () => {
         <p className="menu-title">{t('music-title')}</p>
         {musicMenu.map((item, index) => (
           <NeedLogin
+            key={index}
             item={item}
             login={item.href === '/' ? false : !accessToken}
             onClick={() => handlePushPage(item.href)}

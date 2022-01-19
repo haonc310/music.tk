@@ -11,14 +11,15 @@ import {
   PasswordField,
 } from '../components/form-controls';
 import { ModalTypeEnum } from '../constants';
-import { UseModal } from '../hooks';
+import { UseAccount, UseModal } from '../hooks';
 import './style.scss';
 
 const ModalRegister = () => {
   const { t } = useTranslation();
   const { toggle } = UseModal();
+  const { handleRegister } = UseAccount();
   const schema = yup.object().shape({
-    username: yup.string().required(`Vui lòng nhập ${t('username')}`),
+    userName: yup.string().required(`Vui lòng nhập ${t('username')}`),
     email: yup
       .string()
       .required('Vui lòng nhập email')
@@ -28,7 +29,7 @@ const ModalRegister = () => {
       .required(`Vui lòng nhập ${t('password')} `)
       .min(8, `${t('password')} phải chứa ít nhất 8 kí tự`)
       .max(24, `${t('password')} tối thiếu 24 kí tự`),
-    confirmPassword: yup
+    confirm: yup
       .string()
       .oneOf(
         [yup.ref('password'), null],
@@ -38,16 +39,18 @@ const ModalRegister = () => {
 
   const form = useForm({
     defaultValues: {
+      userName: '',
       email: '',
       password: '',
+      confirm: '',
     },
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
 
   const { handleSubmit } = form;
-  const handleSubmitForm = (values: any) => {
-    console.log(values);
+  const handleSubmitForm = async (values: any) => {
+    await handleRegister(values);
   };
 
   return (
@@ -65,7 +68,7 @@ const ModalRegister = () => {
       >
         <InputField
           form={form}
-          name="username"
+          name="userName"
           disable={false}
           placeholder={t('username')}
           icon={<FaUserAlt />}
@@ -86,13 +89,13 @@ const ModalRegister = () => {
         />
         <PasswordField
           form={form}
-          name="confirmPassword"
+          name="confirm"
           disable={false}
           placeholder={t('confirmPassword')}
           icon={<RiLockPasswordLine />}
         />
         <div className="modal-login-group">
-          <button type="submit">Register</button>
+          <button type="submit">{t('register')}</button>
         </div>
       </form>
       <div
@@ -103,7 +106,7 @@ const ModalRegister = () => {
           })
         }
       >
-        Login
+        {t('login')}
       </div>
     </div>
   );

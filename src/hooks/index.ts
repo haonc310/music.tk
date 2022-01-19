@@ -8,3 +8,4 @@ export * from './use-music';
 export * from './use-check-size';
 export * from './use-playlist';
 export * from './use-toggle';
+export * from './use-account';

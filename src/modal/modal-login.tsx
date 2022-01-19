@@ -10,12 +10,14 @@ import {
   PasswordField,
 } from '../components/form-controls';
 import { ModalTypeEnum } from '../constants';
-import { UseModal } from '../hooks';
+import { UseAccount, UseModal } from '../hooks';
 import './style.scss';
 
 const ModalLogin = () => {
   const { t } = useTranslation();
-  const { toggle } = UseModal();
+  const { toggle, handleCloseModal } = UseModal();
+  const { handleLogin } = UseAccount();
+
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -38,8 +40,8 @@ const ModalLogin = () => {
   });
 
   const { handleSubmit } = form;
-  const handleSubmitForm = (values: any) => {
-    console.log(values);
+  const handleSubmitForm = async (values: any) => {
+    await handleLogin(values);
   };
   return (
     <div

@@ -7,3 +7,4 @@ export const newMusicStore = (state: RootState) => state.newMusic;
 export const musicStore = (state: RootState) => state.music;
 export const playlistStore = (state: RootState) => state.playlist;
 export const toggleStore = (state: RootState) => state.toggle;
+export const accountStore = (state: RootState) => state.account;
