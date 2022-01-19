@@ -67,7 +67,7 @@
 
 .switch > span {
   position: absolute;
-  top: 11px;
+  top: 0.7rem;
   pointer-events: none;
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: bold;
@@ -162,6 +162,29 @@ input.check-toggle-round-flat + label:after {
 
 input.check-toggle-round-flat:checked + label:after {
   margin-left: 25px;
+}
+
+.profile-user {
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  &-upload {
+    background-color: var(--bg-color);
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+  &-avatar {
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
 }
 
 @media (max-width: 992px) {

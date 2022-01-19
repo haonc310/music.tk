@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import RouterControllers from '../src/routes/router-controllers';
 import SidebarRight from './components/sidebar-right/sidebar-right';
 import { UseToggle } from './hooks';
+import './i18n';
 import MainLayout from './layouts/MainLayout';
 import ModalComponent from './modal/modal-component';
-import './i18n';
 
 function App() {
   let { isDark } = UseToggle();

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, register } from './patch-api';
+import { getProfile, login, register } from './patch-api';
 
 const accountSlice = createSlice({
   name: 'account',
@@ -22,9 +22,18 @@ const accountSlice = createSlice({
         state.accessToken = accessToken;
         state.loading = false;
         localStorage.setItem('accessToken', accessToken);
+        // notification.success({
+        //   message: 'Lỗi',
+        // });
+        // notification.success({
+        //   message: 'Đăng nhập thành công',
+        // });
       })
       .addCase(login.rejected, (state: any) => {
         state.loading = false;
+        // notification.error({
+        //   message: 'Đăng nhập thất bại',
+        // });
       });
 
     builder
@@ -37,9 +46,30 @@ const accountSlice = createSlice({
         state.accessToken = accessToken;
         state.loading = false;
         localStorage.setItem('accessToken', accessToken);
+        // notification.success({
+        //   message: 'Đăng ký thành công',
+        // });
       })
       .addCase(register.rejected, (state: any) => {
         state.loading = false;
+        // notification.error({
+        //   message: 'Tài khoản này đã tồn tại!',
+        // });
+      });
+    builder
+      .addCase(getProfile.pending, (state: any) => {
+        state.loading = true;
+      })
+      .addCase(getProfile.fulfilled, (state: any, action: any) => {
+        const { data, accessToken } = action.payload;
+        state.loading = false;
+        state.data = data;
+        state.accessToken = accessToken;
+      })
+      .addCase(getProfile.rejected, (state: any) => {
+        state.loading = false;
+        state.accessToken = '';
+        localStorage.removeItem('accessToken');
       });
   },
 });
