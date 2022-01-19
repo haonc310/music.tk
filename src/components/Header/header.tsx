@@ -45,7 +45,7 @@ const Header = (props: HeaderProps) => {
               id="language-toggle"
               className="check-toggle check-toggle-round-flat"
               type="checkbox"
-              defaultChecked
+              defaultChecked={false}
               onChange={(event) => {
                 const { checked } = event.target;
                 if (checked) {

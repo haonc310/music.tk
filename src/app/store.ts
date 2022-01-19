@@ -6,6 +6,7 @@ import newMusicReducer from '../features/new-musci/new-music-slice';
 import playlistReducer from '../features/playlist/playlistSlice';
 import toggleReducer from '../features/toggle/toggleSlice';
 import trendingReducer from '../features/trending/trending-slice';
+import accountReducer from '../features/account/account-slice';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     music: musicReducer,
     playlist: playlistReducer,
     toggle: toggleReducer,
+    account: accountReducer,
   },
 });
 

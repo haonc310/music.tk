@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
 import { SiApachekafka } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 import { UseToggle } from '../../hooks';
 import Menu from './menu';
 import './sidebar.scss';
@@ -27,11 +28,11 @@ const Sidebar = (props: SidebarProps) => {
       )}
     >
       <div className="sidebar-heading">
-        <div className="sidebar-logo">
+        <Link to="/" className="sidebar-logo">
           <SiApachekafka />
           <span className="special">Bee</span>
           <span>music</span>
-        </div>
+        </Link>
       </div>
       <Menu />
       <div className="toggle">
