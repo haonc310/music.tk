@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import RouterControllers from '../src/routes/router-controllers';
+import RouterControllers from './routes/router-controllers';
 import SidebarRight from './components/sidebar-right/sidebar-right';
 import { UseToggle } from './hooks';
 import './i18n';
@@ -16,6 +16,7 @@ function App() {
       <MainLayout>
         <RouterControllers />
       </MainLayout>
+
       <SidebarRight />
       <ModalComponent />
     </div>

@@ -4,10 +4,12 @@ import { CgPlayPauseO } from 'react-icons/cg';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { MdFavoriteBorder } from 'react-icons/md';
 import { RiEyeLine } from 'react-icons/ri';
-import { UseMusic } from '../../hooks';
+import { ModalTypeEnum } from '../../constants';
+import { UseModal, UseMusic } from '../../hooks';
 import './style.scss';
 
 const CardItem = ({ music, data, index, _id }: any) => {
+  const { toggle } = UseModal();
   const formatView = new Intl.NumberFormat('vn');
   const tempData = { data, index, _id };
 
@@ -44,7 +46,14 @@ const CardItem = ({ music, data, index, _id }: any) => {
             )}
           </div>
           <div className=" cursor-pointer overlay-play">
-            <HiOutlineDotsHorizontal />
+            <HiOutlineDotsHorizontal
+              onClick={() =>
+                toggle({
+                  type: ModalTypeEnum.VIDEO_CLIP,
+                  link_mv: music.link_mv,
+                })
+              }
+            />
           </div>
         </div>
       </div>

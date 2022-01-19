@@ -181,6 +181,7 @@ input.check-toggle-round-flat:checked + label:after {
   }
   &-avatar {
     img {
+      cursor: pointer;
       width: 3.5rem;
       height: 3.5rem;
     }
