@@ -24,15 +24,15 @@ const accountSlice = createSlice({
         state.loading = false;
         localStorage.setItem('accessToken', accessToken);
 
-        // notification.success({
-        //   message: 'Đăng nhập thành công',
-        // });
+        notification.success({
+          message: 'Đăng nhập thành công',
+        });
       })
       .addCase(login.rejected, (state: any) => {
         state.loading = false;
-        // notification.error({
-        //   message: 'Đăng nhập thất bại',
-        // });
+        notification.error({
+          message: 'Đăng nhập thất bại',
+        });
       });
 
     builder
@@ -45,15 +45,15 @@ const accountSlice = createSlice({
         state.accessToken = accessToken;
         state.loading = false;
         localStorage.setItem('accessToken', accessToken);
-        // notification.success({
-        //   message: 'Đăng ký thành công',
-        // });
+        notification.success({
+          message: 'Đăng ký thành công',
+        });
       })
       .addCase(register.rejected, (state: any) => {
         state.loading = false;
-        // notification.error({
-        //   message: 'Tài khoản này đã tồn tại!',
-        // });
+        notification.error({
+          message: 'Tài khoản này đã tồn tại!',
+        });
       });
     builder
       .addCase(getProfile.pending, (state: any) => {
@@ -74,9 +74,9 @@ const accountSlice = createSlice({
       state.data = {};
       state.accessToken = '';
       localStorage.removeItem('accessToken');
-      // notification.success({
-      //   message: 'Đăng xuất thành công',
-      // });
+      notification.success({
+        message: 'Đăng xuất thành công',
+      });
     });
   },
 });
