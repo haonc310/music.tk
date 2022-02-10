@@ -1,19 +1,24 @@
 import React from 'react';
 import { AiFillHeart, AiOutlinePlayCircle } from 'react-icons/ai';
 import { CgPlayPauseO } from 'react-icons/cg';
-import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { MdFavoriteBorder } from 'react-icons/md';
 import { RiEyeLine } from 'react-icons/ri';
-import { ModalTypeEnum } from '../../constants';
-import { UseModal, UseMusic } from '../../hooks';
+import {
+  UseAccount,
+  UseFavoriteAccount,
+  UseMusic,
+} from '../../hooks';
+import { NeedLogin } from '../../layouts/login';
 import OtherDots from '../other-dots/other-dots';
 import './style.scss';
 
 const CardItem = ({ music, data, index, _id }: any) => {
-  const { toggle } = UseModal();
+  const { resultAccount } = UseAccount();
+  const { accessToken } = resultAccount;
   const formatView = new Intl.NumberFormat('vn');
   const tempData = { data, index, _id };
 
+  const { handleCreateFavorite } = UseFavoriteAccount();
   const {
     handlePausePlayClick,
     handleOnIndexMusic,
@@ -27,7 +32,11 @@ const CardItem = ({ music, data, index, _id }: any) => {
         <img src={music.image_music} alt="" />
         <div className="overlay">
           <div className=" cursor-pointer overlay-like">
-            <AiFillHeart />
+            {/* <NeedLogin
+              login={accessToken}
+              icon={<AiFillHeart />}
+              onClick={() => handleCreateFavorite({ idMusic: _id })}
+            /> */}
           </div>
           <div className=" cursor-pointer overlay-play">
             {_id === _id_music ? (

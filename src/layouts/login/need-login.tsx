@@ -18,6 +18,13 @@ export const NeedLogin = (props: any) => {
     <div>
       {!login ? (
         <NavLink
+          onClick={(event) => {
+            if (item.href) {
+            } else {
+              event.preventDefault();
+              onClick();
+            }
+          }}
           to={item.href}
           className={({ isActive }) =>
             'nav-link' + (isActive ? ' activated' : '')
