@@ -9,3 +9,4 @@ export * from './use-check-size';
 export * from './use-playlist';
 export * from './use-toggle';
 export * from './use-account';
+export * from './use-favorite-account';

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dropdown, Menu, Button } from 'antd';
 import { RiUpload2Line } from 'react-icons/ri';
+import { UseFavoriteAccount } from '../../hooks';
 
 const Favorite = () => {
+  const { handleGetFavorite } = UseFavoriteAccount();
+  useEffect(() => {
+    handleGetFavorite({});
+  }, []);
   const menu = (
     <Menu>
       <Menu.Item>

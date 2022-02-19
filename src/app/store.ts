@@ -7,6 +7,7 @@ import playlistReducer from '../features/playlist/playlistSlice';
 import toggleReducer from '../features/toggle/toggleSlice';
 import trendingReducer from '../features/trending/trending-slice';
 import accountReducer from '../features/account/account-slice';
+import favoriteAccountReducer from '../features/favorite-account/favorite-account-slice';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     playlist: playlistReducer,
     toggle: toggleReducer,
     account: accountReducer,
+    favoriteAccount: favoriteAccountReducer,
   },
 });
 

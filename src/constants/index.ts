@@ -1,10 +1,6 @@
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { MdFavoriteBorder, MdLibraryMusic } from 'react-icons/md';
-import {
-  RiCompassDiscoverFill,
-  RiFileUserLine,
-  RiProfileLine,
-} from 'react-icons/ri';
+import { RiCompassDiscoverFill, RiFileUserLine, RiProfileLine } from 'react-icons/ri';
 
 export enum ModalTypeEnum {
   ADD_LIST_MUSIC,
@@ -65,7 +61,6 @@ export const bannerDefault = [
 ];
 
 // export const REACT_APP_API_URL = "http://localhost:3001";
-export const REACT_APP_API_URL =
-  'https://api-kaito-music.herokuapp.com';
+export const REACT_APP_API_URL = 'https://api-kaito-music.herokuapp.com/api';
 export const CLINT_ID_GOOGLE =
   '147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com';
