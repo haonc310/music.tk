@@ -17,7 +17,7 @@ const CardItem = ({ music, data, index, _id }: any) => {
   const { accessToken } = resultAccount;
   const formatView = new Intl.NumberFormat('vn');
   const tempData = { data, index, _id };
-
+                  
   const { handleCreateFavorite } = UseFavoriteAccount();
   const {
     handlePausePlayClick,
@@ -55,6 +55,7 @@ const CardItem = ({ music, data, index, _id }: any) => {
               />
             )}
           </div>
+
           <div className=" cursor-pointer overlay-play">
             <OtherDots
               link_mv={music.link_mv}
