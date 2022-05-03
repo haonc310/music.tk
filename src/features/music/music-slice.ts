@@ -64,9 +64,7 @@ export const musicSlice = createSlice({
       }
     },
     onRandomMusic: (state: MusicState) => {
-      const random = Math.floor(
-        Math.random() * state.dataRandom.length
-      );
+      const random = Math.floor(Math.random() * state.dataRandom.length);
       state.data = state.dataRandom[random];
       state._id_music = state.dataRandom[random]._id;
       state.playing = true;
