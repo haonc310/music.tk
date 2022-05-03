@@ -3,17 +3,28 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Favorite from '../pages/Favorite';
 import HomePage from '../pages/Home';
 import Listened from '../pages/Listened';
-import { UseAccount } from '../hooks';
+import { UseAccount, UseMusic } from '../hooks';
+import ApiPlayHistory from '../apis/api-play-history';
 const accessTokenLocal = localStorage.accessToken;
 const RouterControllers = () => {
   const navigate = useNavigate();
   const { resultAccount } = UseAccount();
   const { accessToken } = resultAccount;
+  const { resultMusic } = UseMusic();
+  const { _id_music } = resultMusic;
 
   useEffect(() => {
     if (!accessToken && !accessTokenLocal) navigate('/');
   }, [accessToken, navigate]);
 
+  useEffect(() => {
+    (async () => {
+      if (_id_music && accessToken) {
+        const res = await ApiPlayHistory.postPlayHistory({ idMusic: _id_music });
+        console.log(res);
+      }
+    })();
+  }, [_id_music]);
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

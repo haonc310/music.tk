@@ -13,9 +13,7 @@ const OtherDots = (props: any) => {
   const menu = (
     <Menu>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
-        <span onClick={() => saveAs(src_music, `${name_music}.mp3`)}>
-          Tải xuống
-        </span>
+        <span onClick={() => saveAs(src_music, `${name_music}.mp3`)}>Tải xuống</span>
       </Menu.Item>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
         <span
@@ -30,23 +28,14 @@ const OtherDots = (props: any) => {
         </span>
       </Menu.Item>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          Thêm vào playlist
-        </a>
+        <span>Thêm vào playlist</span>
       </Menu.Item>
     </Menu>
   );
 
   return (
     <Dropdown overlay={menu} placement="topLeft">
-      <HiOutlineDotsHorizontal
-        className={clsx('text-white cursor-pointer')}
-        size="2.5rem"
-      />
+      <HiOutlineDotsHorizontal className={clsx('text-white cursor-pointer')} size="2.5rem" />
     </Dropdown>
   );
 };

@@ -1,8 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import {
-  createFavorite,
-  getFavorite,
-} from '../features/favorite-account/patch-api';
+import { createFavorite, getFavorite } from '../features/favorite-account/patch-api';
 import { UseAccount } from './use-account';
 import { useAppDispatch, useAppSelector } from './use-react-redux';
 import { favoriteAccountStore } from './use-selector';
@@ -19,7 +16,7 @@ export const UseFavoriteAccount = () => {
     [accessToken, dispatch]
   );
   const handleGetFavorite = useCallback(
-    (data: any) => accessToken && dispatch(getFavorite(data)),
+    (data: any) => dispatch(getFavorite(data)),
     [accessToken, dispatch]
   );
 

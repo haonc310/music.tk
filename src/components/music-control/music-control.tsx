@@ -8,8 +8,7 @@ import './style.scss';
 
 export const MusicControl = (props: any) => {
   const { dropdownMenu } = props;
-  const { dropdownMusic, handleOnDropdownMusic, resultMusic } =
-    UseMusic();
+  const { dropdownMusic, handleOnDropdownMusic, resultMusic } = UseMusic();
 
   const { data } = resultMusic;
   const { src_music } = data;
@@ -17,10 +16,7 @@ export const MusicControl = (props: any) => {
   return (
     <>
       {dropdownMusic && (
-        <div
-          className="btn-open"
-          onClick={() => handleOnDropdownMusic(!dropdownMusic)}
-        >
+        <div className="btn-open" onClick={() => handleOnDropdownMusic(!dropdownMusic)}>
           <RiPlayCircleLine />
         </div>
       )}
