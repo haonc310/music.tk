@@ -1,10 +1,5 @@
 import { useCallback } from 'react';
-import {
-  getProfile,
-  login,
-  logout,
-  register,
-} from '../features/account';
+import { getProfile, login, logout, register } from '../features/account';
 import { useAppDispatch, useAppSelector } from './use-react-redux';
 import { accountStore } from './use-selector';
 

@@ -1,10 +1,11 @@
 import { Dropdown, Menu } from 'antd';
-import React from 'react';
 import { RiUpload2Line } from 'react-icons/ri';
 import { UseAccount } from '../../hooks';
-
+import { ModalTypeEnum } from '../../constants';
+import { UseModal } from '../../hooks';
 export const ProfileUser = () => {
   const { handleLogout } = UseAccount();
+  const { toggle } = UseModal();
   const menu = (
     <Menu>
       <Menu.Item>
@@ -14,7 +15,10 @@ export const ProfileUser = () => {
   );
   return (
     <div className="profile-user">
-      <div className="profile-user-upload">
+      <div
+        className="profile-user-upload"
+        onClick={() => toggle({ type: ModalTypeEnum.UPLOAD_MUSIC, title: 'Tải nhạc lên' })}
+      >
         <RiUpload2Line />
       </div>
 

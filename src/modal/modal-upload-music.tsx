@@ -1,0 +1,164 @@
+import React from 'react';
+import { Form, Input, Button, Upload } from 'antd';
+
+import { BsMic } from 'react-icons/bs';
+import { UploadOutlined } from '@ant-design/icons';
+import { BsMusicNoteList } from 'react-icons/bs';
+import { BsMusicPlayerFill } from 'react-icons/bs';
+import { FiYoutube } from 'react-icons/fi';
+
+export const ModalUploadMusic = () => {
+  const [form] = Form.useForm();
+
+  return (
+    <div className="modal-upload" onClick={(event) => event.stopPropagation()}>
+      <Form onFinish={(data) => console.log(data)} form={form}>
+        <h4 className=" text-white">Tên bài hát</h4>
+        <Form.Item
+          name="name_music"
+          rules={[
+            {
+              required: true,
+              message: 'Nhập tên bài hát',
+              whitespace: true,
+              type: 'string',
+            },
+            {
+              min: 1,
+              max: 40,
+              message: 'Vui lòng nhập đúng tên bài hát!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<BsMusicNoteList className="icon-input" />}
+            placeholder="Nhập tên bài hát"
+            className="h-[35px]"
+          />
+        </Form.Item>
+        <h4 className=" text-white">Tên nghệ sĩ</h4>
+        <Form.Item
+          name="name_singer"
+          rules={[
+            {
+              required: true,
+              message: 'Nhập tên nghệ sĩ',
+              whitespace: true,
+              type: 'string',
+            },
+            {
+              min: 1,
+              max: 30,
+              message: 'Vui lòng nhập đúng tên nghệ sĩ!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<BsMic className="icon-input" />}
+            placeholder="Nghệ sĩ"
+            className="h-[35px]"
+          />
+        </Form.Item>
+        <h4 className=" text-white">Tên thể loại</h4>
+        <Form.Item
+          name="category"
+          rules={[
+            {
+              required: true,
+              message: 'Nhập tên thể loại',
+              whitespace: true,
+              type: 'string',
+            },
+            {
+              min: 1,
+              max: 50,
+              message: 'Vui lòng nhập đúng tên thể loại!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<BsMusicPlayerFill className="icon-input" />}
+            placeholder="Thể loại"
+            className="h-[35px]"
+          />
+        </Form.Item>
+        <h4 className=" text-white">Link Youtube</h4>
+
+        <Form.Item
+          name="link_mv"
+          rules={[
+            {
+              required: true,
+              message: 'Nhập Link Youtube',
+              whitespace: true,
+              type: 'string',
+            },
+            {
+              min: 1,
+              max: 100,
+              message: 'Vui lòng nhập đúng Link Youtube!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<FiYoutube className="icon-input" />}
+            placeholder="https://youtu.be/FN7ALfpGxiI"
+            className="h-[35px]"
+          />
+        </Form.Item>
+        <Form.Item
+          name="src_music"
+          rules={[
+            {
+              required: true,
+              message: 'Vui lòng chọn một bài hát tải lên!',
+            },
+          ]}
+          getValueFromEvent={(event) => console.log(event)}
+          valuePropName="fileList"
+        >
+          <Upload maxCount={1} accept="audio/mpeg" listType="picture">
+            <Button
+              style={{ backgroundColor: '#ff3465', border: '1px solid #ff3465', color: '#ffff' }}
+              icon={<UploadOutlined />}
+            >
+              Click chọn bài hát
+            </Button>
+          </Upload>
+        </Form.Item>
+
+        <Form.Item
+          name="image_music"
+          valuePropName="fileList"
+          rules={[{ required: true, message: 'Vui lòng chọn một tấm ảnh cho bài hát!' }]}
+          getValueFromEvent={(event) => console.log(event)}
+        >
+          <Upload
+            maxCount={1}
+            accept=".jpg, .jpeg, .png"
+            listType="picture"
+            onChange={(event) => console.log(event)}
+          >
+            <Button
+              style={{ backgroundColor: '#ff3465', border: '1px solid #ff3465', color: '#ffff' }}
+              icon={<UploadOutlined />}
+            >
+              Click chọn poster
+            </Button>
+          </Upload>
+        </Form.Item>
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="w-full"
+            style={{ height: '35px', marginTop: '10px' }}
+            loading={false}
+          >
+            Tải nhạc lên
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};

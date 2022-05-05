@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import ApiPlayHistory from '../../apis/api-play-history';
-import { UseMusic } from '../../hooks';
+import { useMusicHistory } from '../../hooks';
 import { MusicItem } from '../CardMusic';
 
 const HistoryList = () => {
-  const [data, setData] = useState<any>();
-  useEffect(() => {
-    (async () => {
-      const res = await ApiPlayHistory.getPlayHistory({});
-      const { data } = res;
-      const cloneData = data?.map((item: any) => item?.music);
-      setData(cloneData);
-    })();
-  }, []);
+  const { data } = useMusicHistory();
   return (
     <div>
       {data?.map((music: any, index: number) => (
