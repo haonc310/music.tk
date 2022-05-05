@@ -107,3 +107,10 @@
     height: 50vh;
   }
 }
+
+.modal-upload{
+  width: 500px;
+  background-color: var(--bg-modal);
+  padding: 2rem 1rem;
+  z-index:999999;
+}

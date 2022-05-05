@@ -1,30 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import ApiPlayHistory from '../../apis/api-play-history';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { MusicItem } from '../../components/CardMusic/music-item';
 import { ListLoading } from '../../components/Loading';
+import { useMusicHistory } from '../../hooks';
 
 const Listened = () => {
-  const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState<boolean>();
+  const { data, loading, pagination, handleGetData } = useMusicHistory();
+  const previousPage = React.useRef<number>(1);
+  const [page, setPage] = React.useState<number>(previousPage.current);
+  const fetchMoreData = () => {
+    if (data.length < pagination?._total) setPage(page + 1);
+  };
+
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      const res = await ApiPlayHistory.getPlayHistory({});
-      console.log(res);
-      const { data } = res;
-      const cloneData = data?.map((item: any) => item?.music);
-      setData(cloneData);
-      setLoading(false);
-    })();
-  }, []);
+    if (!pagination?._total || previousPage.current < page) {
+      handleGetData({ _page: page, _limit: 30 });
+    }
+  }, [page, pagination?._total]);
+
   return (
     <div>
       {data?.length && !loading ? (
-        <div className="music">
-          {data?.map((music: any, index: number) => (
-            <MusicItem music={music} key={index} index={index} data={data} _id={music._id} />
-          ))}
-        </div>
+        <InfiniteScroll
+          dataLength={data.length}
+          next={fetchMoreData}
+          hasMore={data.length === pagination?._total ? false : true}
+          loader={<ListLoading items={data.length || 10} />}
+        >
+          <div className="music">
+            {data?.map((music: any, index: number) => (
+              <MusicItem music={music} key={index} index={index} data={data} _id={music._id} />
+            ))}
+          </div>
+        </InfiniteScroll>
       ) : (
         <ListLoading />
       )}

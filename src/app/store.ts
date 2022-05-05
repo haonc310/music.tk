@@ -8,7 +8,7 @@ import toggleReducer from '../features/toggle/toggleSlice';
 import trendingReducer from '../features/trending/trending-slice';
 import accountReducer from '../features/account/account-slice';
 import favoriteAccountReducer from '../features/favorite-account/favorite-account-slice';
-
+import historyStoreReducer from '../features/play-history/play-history-slice';
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
@@ -20,6 +20,7 @@ export const store = configureStore({
     toggle: toggleReducer,
     account: accountReducer,
     favoriteAccount: favoriteAccountReducer,
+    historyStore: historyStoreReducer,
   },
 });
 

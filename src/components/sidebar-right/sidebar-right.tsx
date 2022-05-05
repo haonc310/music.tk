@@ -20,9 +20,6 @@ const SidebarRight = () => {
           onClick={() => handleToggle(false)}
         ></div>
         <div className={clsx('sidebar-right', isOpen && 'active')}>
-          {/* <div className="sidebar-right-content">
-            <WaitingList />
-          </div> */}
           <Tabs
             defaultActiveKey="1"
             style={{ height: '100%' }}

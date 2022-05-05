@@ -8,5 +8,5 @@ export const musicStore = (state: RootState) => state.music;
 export const playlistStore = (state: RootState) => state.playlist;
 export const toggleStore = (state: RootState) => state.toggle;
 export const accountStore = (state: RootState) => state.account;
-export const favoriteAccountStore = (state: RootState) =>
-  state.favoriteAccount;
+export const favoriteAccountStore = (state: RootState) => state.favoriteAccount;
+export const historyStore = (state: RootState) => state.historyStore;
