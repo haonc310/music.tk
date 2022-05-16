@@ -11,3 +11,4 @@ export * from './use-toggle';
 export * from './use-account';
 export * from './use-favorite-account';
 export * from './use-play-history';
+export * from './use-upload-music';

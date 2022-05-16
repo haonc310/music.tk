@@ -29,6 +29,7 @@ const Trending = () => {
   const { t } = useTranslation();
   const { resultTrending } = UseTrending();
   const { data, loading } = resultTrending;
+
   return (
     <div className="trending mt-4 mb-4">
       <h3 className="card-title">{t('popular')}</h3>
@@ -36,13 +37,7 @@ const Trending = () => {
         {data.length && !loading ? (
           <CarouselProvider settings={settings}>
             {data.map((music: any, index) => (
-              <CardItem
-                music={music}
-                key={index}
-                index={index}
-                data={data}
-                _id={music._id}
-              />
+              <CardItem music={music} key={index} index={index} data={data} _id={music._id} />
             ))}
           </CarouselProvider>
         ) : (

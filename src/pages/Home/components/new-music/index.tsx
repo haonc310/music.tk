@@ -7,6 +7,7 @@ const NewMusic = () => {
   const { t } = useTranslation();
   const { resultNewMusic } = UseNewMusic();
   const { data, loading } = resultNewMusic;
+  console.log(data);
   return (
     <div>
       <h3 className="music-title"> {t('new-release')}</h3>
