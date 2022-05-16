@@ -26,7 +26,7 @@ const Listened = () => {
           dataLength={data.length}
           next={fetchMoreData}
           hasMore={data.length === pagination?._total ? false : true}
-          loader={<ListLoading items={data.length || 10} />}
+          loader={<ListLoading items={data.length || 20} />}
         >
           <div className="music">
             {data?.map((music: any, index: number) => (

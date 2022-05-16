@@ -9,6 +9,7 @@ import trendingReducer from '../features/trending/trending-slice';
 import accountReducer from '../features/account/account-slice';
 import favoriteAccountReducer from '../features/favorite-account/favorite-account-slice';
 import historyStoreReducer from '../features/play-history/play-history-slice';
+import uploadMusicReducer from '../features/upload-music/upload-music-slice';
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
@@ -21,6 +22,7 @@ export const store = configureStore({
     account: accountReducer,
     favoriteAccount: favoriteAccountReducer,
     historyStore: historyStoreReducer,
+    uploadMusicStore: uploadMusicReducer,
   },
 });
 

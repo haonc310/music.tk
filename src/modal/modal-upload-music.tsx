@@ -6,13 +6,17 @@ import { UploadOutlined } from '@ant-design/icons';
 import { BsMusicNoteList } from 'react-icons/bs';
 import { BsMusicPlayerFill } from 'react-icons/bs';
 import { FiYoutube } from 'react-icons/fi';
+import { useUploadMusic } from '../hooks';
 
 export const ModalUploadMusic = () => {
   const [form] = Form.useForm();
 
+  const { newImage, handleUploadMusicImage, handleUploadMusicSource, handlePostUploadMusic } =
+    useUploadMusic();
+
   return (
     <div className="modal-upload" onClick={(event) => event.stopPropagation()}>
-      <Form onFinish={(data) => console.log(data)} form={form}>
+      <Form onFinish={handlePostUploadMusic} form={form}>
         <h4 className=" text-white">Tên bài hát</h4>
         <Form.Item
           name="name_music"
@@ -114,7 +118,7 @@ export const ModalUploadMusic = () => {
               message: 'Vui lòng chọn một bài hát tải lên!',
             },
           ]}
-          getValueFromEvent={(event) => console.log(event)}
+          getValueFromEvent={handleUploadMusicSource}
           valuePropName="fileList"
         >
           <Upload maxCount={1} accept="audio/mpeg" listType="picture">
@@ -131,13 +135,13 @@ export const ModalUploadMusic = () => {
           name="image_music"
           valuePropName="fileList"
           rules={[{ required: true, message: 'Vui lòng chọn một tấm ảnh cho bài hát!' }]}
-          getValueFromEvent={(event) => console.log(event)}
+          getValueFromEvent={handleUploadMusicImage}
         >
           <Upload
             maxCount={1}
             accept=".jpg, .jpeg, .png"
             listType="picture"
-            onChange={(event) => console.log(event)}
+            onChange={handleUploadMusicImage}
           >
             <Button
               style={{ backgroundColor: '#ff3465', border: '1px solid #ff3465', color: '#ffff' }}
