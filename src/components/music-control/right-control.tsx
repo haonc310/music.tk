@@ -21,10 +21,10 @@ export const RightControl = () => {
         size="2.5rem"
         className="control-action m-l-r-1 control-favorite"
       />
-      <AiOutlineComment
+      {/* <AiOutlineComment
         size="2.5rem"
         className="control-action m-l-r-1 control-loop"
-      />
+      /> */}
       <RiPlayListLine
         size="2.5rem"
         className="control-action m-l-r-1 control-loop"

@@ -14,9 +14,7 @@ const Favorite = () => {
   }, []);
 
   const cloneData = data?.map((item: any) => item?.music);
-  console.log({
-    cloneData,
-  });
+  
 
   return (
     <div className="favorite-page">
@@ -26,9 +24,15 @@ const Favorite = () => {
             <MusicItem music={music} key={index} index={index} data={cloneData} _id={music._id} />
           ))}
         </div>
-      ) : (
+      ) : null }
+      {loading && (
         <ListLoading />
       )}
+      {
+        !cloneData?.length && !loading && (
+          <h1>Không có bài hát nào</h1>
+        )
+      }
     </div>
   );
 };

@@ -11,14 +11,14 @@ import { useUploadMusic } from '../hooks';
 export const ModalUploadMusic = () => {
   const [form] = Form.useForm();
 
-  const { newImage, handleUploadMusicImage, handleUploadMusicSource, handlePostUploadMusic } =
+  const { newImage, handleUploadMusicImage, handleUploadMusicSource, handlePostUploadMusic, loadingUploadMusic } =
     useUploadMusic();
 
   return (
     <div className="modal-upload" onClick={(event) => event.stopPropagation()}>
       <Form onFinish={handlePostUploadMusic} form={form}>
-        <h4 className=" text-white">Tên bài hát</h4>
-        <Form.Item
+        {/* <h4 className=" text-white">Tên bài hát</h4> */}
+        {/* <Form.Item
           name="name_music"
           rules={[
             {
@@ -39,7 +39,7 @@ export const ModalUploadMusic = () => {
             placeholder="Nhập tên bài hát"
             className="h-[35px]"
           />
-        </Form.Item>
+        </Form.Item> */}
         <h4 className=" text-white">Tên nghệ sĩ</h4>
         <Form.Item
           name="name_singer"
@@ -110,7 +110,7 @@ export const ModalUploadMusic = () => {
             className="h-[35px]"
           />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           name="src_music"
           rules={[
             {
@@ -129,9 +129,9 @@ export const ModalUploadMusic = () => {
               Click chọn bài hát
             </Button>
           </Upload>
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item
+        {/* <Form.Item
           name="image_music"
           valuePropName="fileList"
           rules={[{ required: true, message: 'Vui lòng chọn một tấm ảnh cho bài hát!' }]}
@@ -150,14 +150,14 @@ export const ModalUploadMusic = () => {
               Click chọn poster
             </Button>
           </Upload>
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
             className="w-full"
             style={{ height: '35px', marginTop: '10px' }}
-            loading={false}
+            loading={loadingUploadMusic}
           >
             Tải nhạc lên
           </Button>

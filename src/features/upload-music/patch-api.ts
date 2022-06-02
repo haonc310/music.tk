@@ -7,6 +7,7 @@ export const getUploadMusic = createAsyncThunk('music/get-upload', async (params
 });
 
 export const postUploadMusic = createAsyncThunk('music/create', async (data: any) => {
+  console.log(data)
   const response = await uploadMusicApi.postUploadMusic(data);
   return response;
 });

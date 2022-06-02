@@ -34,9 +34,16 @@ const Listened = () => {
             ))}
           </div>
         </InfiniteScroll>
-      ) : (
-        <ListLoading />
-      )}
+      ) : null}
+
+      {loading && (
+              <ListLoading />
+            )}
+      {
+        !data?.length && !loading && (
+          <h1>Không có bài hát nào</h1>
+        )
+      }
     </div>
   );
 };

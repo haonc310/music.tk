@@ -1,13 +1,13 @@
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 8rem;
   width: 30rem;
   overflow: hidden;
   bottom: 0;
   background-color: var(--third-color);
   // border-radius: 6rem 0 0 6rem;
   box-sizing: border-box;
-  z-index: 30;
+  z-index: 2;
 
   padding: 0 2rem;
   transition: 0.2s ease-in;

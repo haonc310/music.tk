@@ -2,13 +2,18 @@ import { message, notification } from 'antd';
 import React from 'react';
 import { postUploadMusic } from '../features/upload-music';
 import { UseModal } from './use-modal';
-import { useAppDispatch } from './use-react-redux';
+import { useAppDispatch, useAppSelector, uploadMusicStore } from './index';
 const accessTokenLocal = localStorage.getItem('accessToken');
 export const useUploadMusic = () => {
   const dispatch = useAppDispatch();
+  const resultMusicUpload = useAppSelector(uploadMusicStore);
   const [newImage, setNewImage] = React.useState<boolean>(false);
   const [newAudio, setNewAudio] = React.useState<boolean>(false);
   const { resultModal } = UseModal();
+
+  const {loadingUploadMusic } = resultMusicUpload;
+
+  console.log(resultMusicUpload)
 
   const { others } = resultModal;
 
@@ -38,15 +43,15 @@ export const useUploadMusic = () => {
   };
   const handlePostUploadMusic = async (value: any) => {
     if (value) {
-      const formData = new FormData();
-      const { category, image_music, link_mv, name_music, name_singer, src_music } = value;
-      const data = { category, link_mv, name_music, name_singer, _id: others?._id };
-      formData.append('image_music', image_music[0].originFileObj);
-      formData.append('src_music', src_music[0].originFileObj);
-      formData.append('upload', JSON.stringify(data));
+      // const formData = new FormData();
+      const { category,  link_mv,  name_singer } = value;
+      const data = { category, link_mv,  name_singer, _id: others?._id };
+      // formData.append('image_music', image_music[0].originFileObj);
+      // formData.append('src_music', src_music[0].originFileObj);
+      // formData.append('upload', JSON.stringify(data));
       const youtube = link_mv.split('/');
       if (youtube.length === 4) {
-        handlePostSourceMusic(formData);
+        handlePostSourceMusic(data);
       } else
         notification['error']({
           message: 'Thông Báo',
@@ -55,5 +60,5 @@ export const useUploadMusic = () => {
     }
   };
 
-  return { newImage, handleUploadMusicImage, handlePostUploadMusic, handleUploadMusicSource };
+  return { newImage, handleUploadMusicImage, handlePostUploadMusic, handleUploadMusicSource , loadingUploadMusic};
 };

@@ -7,6 +7,7 @@ import { UseAccount, UseCheckSize, UseModal } from '../../hooks';
 import './header.scss';
 import { Login } from './login';
 import { ProfileUser } from './profile-user';
+import Search from './search';
 export interface HeaderProps {
   dropdownMenu: boolean;
   setDropdownMenu: (value: boolean) => void;
@@ -44,7 +45,9 @@ const Header = (props: HeaderProps) => {
         <IconDropdownMenu />
       </div>
       <div className="header-search">
-        <input type="text" placeholder={t('search-input')} />
+        {/* <input type="text" placeholder={t('search-input')} />
+        <div className='search-result'></div> */}
+        <Search/>
       </div>
       <div className="header-user">
         <div className="heder-i18n">

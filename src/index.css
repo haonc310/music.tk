@@ -82,11 +82,22 @@ a {
 
 .App.dark .header input {
   background-color: #fff;
+  color: #000;
+}
+.App .header input {
+  border:1px solid #000;
 }
 .App.dark .modal-login-group input {
   color: #fff;
 }
 .App .modal-login-group input {
+  color: #000;
+}
+
+.App.dark .music-right span {
+  color: #fff;
+}
+.App .music-right span {
   color: #000;
 }
 
