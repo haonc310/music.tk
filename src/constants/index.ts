@@ -61,6 +61,6 @@ export const bannerDefault = [
 ];
 
 // export const REACT_APP_API_URL = "http://localhost:3001";
-export const REACT_APP_API_URL = 'http://localhost:5000/api';
+export const REACT_APP_API_URL = 'https://music-web-production.up.railway.app/api';
 export const CLINT_ID_GOOGLE =
   '147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com';
