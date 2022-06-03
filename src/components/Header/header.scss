@@ -198,7 +198,7 @@ input.check-toggle-round-flat:checked + label:after {
   padding-top: 8px;
   border-radius: 8px;
   // background: rgb(255, 255, 255);
-  background-color: #000;
+  background-color:var(--color-search);
   padding: 10px;
   // box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
 }
@@ -206,6 +206,11 @@ input.check-toggle-round-flat:checked + label:after {
   display: flex;
   margin-bottom: 10px;
   cursor: pointer;
+  padding: .5rem 0;
+  &:hover{
+    background-color: #ccc;
+    
+  }
   &-img{
     width: 40px;
     height: 40px;
@@ -215,7 +220,7 @@ input.check-toggle-round-flat:checked + label:after {
 }
 .search,
 .search-result {
-    width: 361px;
+    width: 600px;
 }
 
 .search {
@@ -239,19 +244,17 @@ input.check-toggle-round-flat:checked + label:after {
         color: rgba(22, 24, 35, 0.75);
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        width: 1px;
-        height: 100px;
-        background-color: rgba(22, 24, 35, 0.12);
-    }
+    
 
     &:focus-within {
         border-color: rgba(22, 24, 35, 0.2);
     }
+}
+@media (max-width:1024px) {
+  .search,
+  .search-result {
+    width: 400px;
+  }
 }
 
 .search-title {
@@ -260,19 +263,6 @@ input.check-toggle-round-flat:checked + label:after {
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
 }
-
-// .clear,
-// .loading {
-//     position: absolute;
-//     right: calc(var(--search-button-width) + 16px);
-//     top: 50%;
-//     transform: translateY(-50%);
-//     color: rgba(22, 24, 35, 0.34);
-// }
-
-// .loading {
-//     animation: spinner 0.8s linear infinite;
-// }
 
 @keyframes spinner {
     from {
@@ -314,21 +304,35 @@ input.check-toggle-round-flat:checked + label:after {
 //   background-color: #fff;
 // }
 @media (max-width: 992px) {
-  .header-search {
-    display: none;
+  .search,
+  .search-result {
+    width: 350px;
   }
 }
 
 @media (max-width: 768px) {
+  
   .header {
+    flex-direction: column;
+    height: 18rem;
+    align-items: flex-start;
+    padding: 2rem;
+    &-user{
+      justify-content: center;
+      width: 100%;
+      margin-top: 1rem;
+    }
     &-search {
-      margin-left: 2rem;
+      width: 100%;
+      div{
+        width: 100%;
+      }
       input {
-        width: 15rem;
+        width: 100%;
       }
     }
     &-active {
-      padding-left: 0;
+      padding-left: 2rem;
     }
   }
 }

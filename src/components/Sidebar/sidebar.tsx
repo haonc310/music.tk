@@ -31,7 +31,7 @@ const Sidebar = (props: SidebarProps) => {
         <Link to="/" className="sidebar-logo">
           <SiApachekafka />
           <span className="special">Bee</span>
-          <span>music</span>
+          <span className="primary">music</span>
         </Link>
       </div>
       <Menu />

@@ -57,7 +57,7 @@ const CardItem = ({ music, data, index, _id }: any) => {
       </div>
       <div className="card-info">
         <h4 className="card-name">{music.name_music}</h4>
-        <p className="card-author">{music.subscribe}</p>
+        <p className="card-author">{music.name_singer ||'unknown'}</p>
         <p className="card-view">
           <RiEyeLine />
           <span>{music.view && formatView.format(music.view)} lượt xem</span>

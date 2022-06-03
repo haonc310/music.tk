@@ -38,7 +38,7 @@ export const MusicItem = (props: any) => {
         </div>
         <div className="music-info">
           <h4 className="music-name">{music.name_music}</h4>
-          <p className="music-author">{music.subscribe}</p>
+          <p className="music-author">{music.name_singer ||'unknown'}</p>
         </div>
       </div>
       <div className="music-right">
