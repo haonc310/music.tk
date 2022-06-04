@@ -5,7 +5,10 @@ import { homeMenu, musicMenu } from '../../constants';
 import { UseAccount } from '../../hooks';
 import { NeedLogin } from '../../layouts/login';
 
-const Menu = () => {
+type Props = {
+  setDropdownMenu: (value: boolean) => void;
+}
+const Menu = ({setDropdownMenu}: Props) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { resultAccount } = UseAccount();
@@ -22,8 +25,12 @@ const Menu = () => {
           <NeedLogin
             key={index}
             item={item}
+            setDropdownMenu={setDropdownMenu}
             login={item.href === '/' ? false : !accessToken}
-            onClick={() => handlePushPage(item.href)}
+            onClick={() =>{
+              handlePushPage(item.href)
+             
+            }}
           />
         ))}
       </div>

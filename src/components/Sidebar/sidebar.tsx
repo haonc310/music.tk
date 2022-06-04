@@ -12,7 +12,7 @@ export interface SidebarProps {
 }
 
 const Sidebar = (props: SidebarProps) => {
-  const { dropdownMenu } = props;
+  const { dropdownMenu, setDropdownMenu } = props;
   
 
   return (
@@ -29,7 +29,7 @@ const Sidebar = (props: SidebarProps) => {
           <span className="primary">music</span>
         </Link>
       </div>
-      <Menu />
+      <Menu setDropdownMenu={setDropdownMenu}/>
       
     </div>
   );

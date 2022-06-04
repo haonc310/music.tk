@@ -7,7 +7,7 @@ import { UseModal } from '../../hooks';
 export const NeedLogin = (props: any) => {
   const { t } = useTranslation();
   const { toggle } = UseModal();
-  const { item, login, onClick } = props;
+  const { item, login, onClick,setDropdownMenu } = props;
   const handleClick = (e: any) => {
     e.preventDefault();
     toggle({
@@ -20,6 +20,7 @@ export const NeedLogin = (props: any) => {
         <NavLink
           onClick={(event) => {
             if (item.href) {
+              setDropdownMenu(false)
             } else {
               event.preventDefault();
               onClick();
