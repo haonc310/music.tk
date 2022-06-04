@@ -4,8 +4,12 @@ import Header from '../components/Header/header';
 import Sidebar from '../components/Sidebar/sidebar';
 import { MusicControl } from '../components/music-control';
 import { UseToggle } from '../hooks';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MainLayout = ({ children }: any) => {
+  const location = useLocation();
+
+  console.log(location)
   const [dropdownMenu, setDropdownMenu] = useState(true);
 
   let { handleToggleTheme, isDark } = UseToggle();
@@ -14,6 +18,9 @@ const MainLayout = ({ children }: any) => {
     let check = JSON.parse(localStorage.getItem('isDark') as string);
     handleToggleTheme(check);
   }, []);
+  useEffect(() => {
+    setDropdownMenu(false)
+  },[location.pathname])
   return (
     <>
       <Sidebar

@@ -20,7 +20,7 @@ export const NeedLogin = (props: any) => {
         <NavLink
           onClick={(event) => {
             if (item.href) {
-              setDropdownMenu(false)
+              // setDropdownMenu(false)
             } else {
               event.preventDefault();
               onClick();

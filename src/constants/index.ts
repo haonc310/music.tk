@@ -43,11 +43,11 @@ export const musicMenu = [
     href: '/listened-song',
     Icon: MdLibraryMusic,
   },
-  {
-    title: 'uploaded',
-    href: '/upload-music',
-    Icon: AiOutlineCloudUpload,
-  },
+  // {
+  //   title: 'uploaded',
+  //   href: '/upload-music',
+  //   Icon: AiOutlineCloudUpload,
+  // },
 ];
 
 export const bannerDefault = [

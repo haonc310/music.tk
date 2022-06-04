@@ -11,9 +11,6 @@ export const useMusicHistory = () => {
 
   const {accessToken} = resultAccount
 
-  console.log({accessToken, accessTokenLocal})
-
-
   const handleGetData = React.useCallback(
     (params: any) => {
       return accessTokenLocal  && dispatch(getPlayHistory(params));

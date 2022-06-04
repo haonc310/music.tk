@@ -29,7 +29,7 @@ const Menu = ({setDropdownMenu}: Props) => {
             login={item.href === '/' ? false : !accessToken}
             onClick={() =>{
               handlePushPage(item.href)
-             
+             console.log("Hi")
             }}
           />
         ))}

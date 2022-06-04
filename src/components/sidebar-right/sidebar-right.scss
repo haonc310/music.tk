@@ -36,6 +36,15 @@
   }
 }
 
+@media (max-width:444px) {
+  .wrapper-sidebar-right{
+    .sidebar-right{
+      max-width: 32rem;
+      width: 32rem;
+    }
+  }
+}
+
 @keyframes sidebarRightActive {
   0% {
     transform: translateX(100%);
