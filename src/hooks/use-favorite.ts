@@ -8,7 +8,7 @@ export const UseFavorite = () => {
   const { error, data }: any = resultFavorite;
 
   const getFavoriteAPI = React.useCallback(
-    (params: any) => dispatch(getFavorite(params)),
+    (params: any) =>  dispatch(getFavorite(params)),
     [dispatch]
   );
 

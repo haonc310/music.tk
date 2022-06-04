@@ -11,16 +11,17 @@ export const UseAccount = () => {
   const navigation = useNavigate()
   const dispatch = useAppDispatch();
   const resultAccount = useAppSelector(accountStore);
+  const {accessToken} = resultAccount
 
   
 
   const handleLogin = (data: any) => dispatch(login(data));
   const handleRegister = (data: any) => dispatch(register(data));
-  const handleLogout = () => {
-    dispatch(logout());
-    // dispatch(onLogOutRemoveData());
-    navigation('/')
-  }
+  
+  const handleLogout =useCallback(
+    () => accessToken &&  dispatch(logout()),
+    [dispatch, accessToken]
+);
   const handleGetProfile = useCallback(
     () => accessTokenLocal && dispatch(getProfile()),
     [dispatch]

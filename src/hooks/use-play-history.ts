@@ -1,12 +1,18 @@
 import React from 'react';
 import { getPlayHistory } from '../features/play-history/patch-api';
 import { useAppDispatch, useAppSelector } from './use-react-redux';
-import { historyStore } from './use-selector';
-const accessTokenLocal = localStorage.getItem('accessToken');
+import { accountStore, historyStore } from './use-selector';
 export const useMusicHistory = () => {
+  const accessTokenLocal = localStorage.getItem('accessToken');
   const dispatch = useAppDispatch();
   const resultHistory = useAppSelector(historyStore);
+  const resultAccount = useAppSelector(accountStore);
   const { data, pagination, loading } = resultHistory;
+
+  const {accessToken} = resultAccount
+
+  console.log({accessToken, accessTokenLocal})
+
 
   const handleGetData = React.useCallback(
     (params: any) => {

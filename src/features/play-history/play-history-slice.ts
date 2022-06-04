@@ -39,6 +39,7 @@ const PlayHistorySlice = createSlice({
       })
       .addCase(getPlayHistory.fulfilled, (state, action) => {
         const { pagination, data } = action.payload;
+        console.log(data)
         state.loading = false;
           if(pagination._page===1){
             state.data =[]

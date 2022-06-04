@@ -30,6 +30,8 @@ const accountSlice = createSlice({
       })
       .addCase(login.rejected, (state: any) => {
         state.loading = false;
+        localStorage.removeItem('accessToken')
+        state.accessToken = ''
         notification.error({
           message: 'Đăng nhập thất bại',
         });

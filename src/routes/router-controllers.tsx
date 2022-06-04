@@ -5,8 +5,9 @@ import HomePage from '../pages/Home';
 import Listened from '../pages/Listened';
 import { UseAccount, UseMusic } from '../hooks';
 import ApiPlayHistory from '../apis/api-play-history';
-const accessTokenLocal = localStorage.accessToken;
+
 const RouterControllers = () => {
+  const accessTokenLocal = localStorage.accessToken;
   const navigate = useNavigate();
   const { resultAccount } = UseAccount();
   const { accessToken } = resultAccount;
@@ -14,6 +15,7 @@ const RouterControllers = () => {
   const { _id_music } = resultMusic;
 
   useEffect(() => {
+    console.log({accessToken, accessTokenLocal})
     if (!accessToken && !accessTokenLocal) navigate('/');
   }, [accessToken, navigate]);
 
