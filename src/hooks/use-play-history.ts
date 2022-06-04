@@ -10,7 +10,7 @@ export const useMusicHistory = () => {
 
   const handleGetData = React.useCallback(
     (params: any) => {
-      return accessTokenLocal && dispatch(getPlayHistory(params));
+      return accessTokenLocal  && dispatch(getPlayHistory(params));
     },
     [accessTokenLocal, dispatch]
   );

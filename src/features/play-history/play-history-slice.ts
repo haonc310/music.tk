@@ -15,10 +15,13 @@ const PlayHistorySlice = createSlice({
   name: 'playHistory',
   initialState: initialStatePlayList,
   reducers: {
-    // onLogOutRemoveData: (state) => {
-    //   state.data = [];
-    //   state.pagination = {};
-    // },
+    onLogOutRemoveData: (state) => {
+      state.data = [];
+      state.pagination = {
+        _total: 0,
+        _page: 1,
+      };
+    },
   },
   extraReducers: (builder: ActionReducerMapBuilder<any>) => {
     builder.addCase(postPlayHistory.fulfilled, (state, action) => {
@@ -37,10 +40,15 @@ const PlayHistorySlice = createSlice({
       .addCase(getPlayHistory.fulfilled, (state, action) => {
         const { pagination, data } = action.payload;
         state.loading = false;
+          if(pagination._page===1){
+            state.data =[]
+          }
+            data.forEach((i: any) => {
+              state.data.push(i.music);
+            });
+          
+        
         state.pagination = pagination;
-        data.forEach((i: any) => {
-          state.data.push(i.music);
-        });
       })
       .addCase(getPlayHistory.rejected, (state) => {
         state.loading = false;
@@ -49,5 +57,5 @@ const PlayHistorySlice = createSlice({
   },
 });
 const { reducer, actions } = PlayHistorySlice;
-// export const { onLogOutRemoveData } = actions;
+export const { onLogOutRemoveData } = actions;
 export default reducer;

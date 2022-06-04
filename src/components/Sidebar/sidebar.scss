@@ -115,6 +115,7 @@
 @media (max-width: 768px) {
   .sidebar {
     border-radius: 0;
-    top: 18rem;
+    top: 12rem;
+    overflow-y: scroll;
   }
 }

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { AiOutlinePlayCircle } from 'react-icons/ai';
-import { UseMusic } from '../../hooks';
+import { UseMusic, useMusicHistory } from '../../hooks';
 import { LoadingPlay } from '../Loading';
 import './style.scss';
 
@@ -10,6 +10,7 @@ export const MusicItem = (props: any) => {
   const tempData = { data, index, _id };
   const { handlePausePlayClick, handleOnPauseMusic, handleOnIndexMusic, _id_music, playing } =
     UseMusic();
+    const {handleGetData} = useMusicHistory()
   return (
     <div
       className={clsx('music-item cursor-pointer', _id_music === _id && playing && 'active')}
@@ -32,7 +33,12 @@ export const MusicItem = (props: any) => {
                 )}
               </>
             ) : (
-              <AiOutlinePlayCircle onClick={() => handleOnIndexMusic(tempData)} />
+              <AiOutlinePlayCircle onClick={() => {
+                handleOnIndexMusic(tempData)
+                
+              }
+                
+              } />
             )}
           </div>
         </div>
