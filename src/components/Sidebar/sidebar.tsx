@@ -13,12 +13,7 @@ export interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const { dropdownMenu } = props;
-  let { handleToggleTheme, isDark } = UseToggle();
-  let check = JSON.parse(localStorage.getItem('isDark') as string);
-  useEffect(() => {
-    let check = JSON.parse(localStorage.getItem('isDark') as string);
-    handleToggleTheme(check);
-  }, []);
+  
 
   return (
     <div
@@ -35,13 +30,7 @@ const Sidebar = (props: SidebarProps) => {
         </Link>
       </div>
       <Menu />
-      <div className="toggle">
-        <input
-          type="checkbox"
-          checked={isDark}
-          onChange={(event) => handleToggleTheme(!isDark)}
-        />
-      </div>
+      
     </div>
   );
 };

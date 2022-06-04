@@ -84,12 +84,12 @@
 }
 .toggle {
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 0.4rem;
+  right: 1.5rem;
   input {
     position: relative;
-    width: 6rem;
-    height: 3rem;
+    width: 5rem;
+    height: 2.5rem;
     appearance: none;
     background-color: #ff3465;
     border-radius: 1.5rem;
@@ -101,8 +101,8 @@
       top: 0;
       left: 0;
       bottom: 0;
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
       background-color: #fff;
       transform: scale(1.1);

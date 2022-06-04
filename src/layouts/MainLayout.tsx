@@ -1,11 +1,19 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header/header';
 import Sidebar from '../components/Sidebar/sidebar';
 import { MusicControl } from '../components/music-control';
+import { UseToggle } from '../hooks';
 
 const MainLayout = ({ children }: any) => {
   const [dropdownMenu, setDropdownMenu] = useState(true);
+
+  let { handleToggleTheme, isDark } = UseToggle();
+  let check = JSON.parse(localStorage.getItem('isDark') as string);
+  useEffect(() => {
+    let check = JSON.parse(localStorage.getItem('isDark') as string);
+    handleToggleTheme(check);
+  }, []);
   return (
     <>
       <Sidebar
@@ -21,6 +29,13 @@ const MainLayout = ({ children }: any) => {
           {children}
           <MusicControl dropdownMenu={dropdownMenu} />
         </div>
+        <div className="toggle">
+        <input
+          type="checkbox"
+          checked={isDark}
+          onChange={(event) => handleToggleTheme(!isDark)}
+        />
+      </div>
       </div>
     </>
   );
