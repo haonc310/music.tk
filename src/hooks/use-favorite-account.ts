@@ -27,8 +27,8 @@ export const UseFavoriteAccount = () => {
     [accessToken, dispatch]
   );
   const handleGetFavorite = useCallback(
-    (data: any) => accessToken&& dispatch(getFavorite(data)),
-    [accessToken, dispatch]
+    (data: any) =>  dispatch(getFavorite(data)),
+    [ dispatch]
   );
 
   return {
