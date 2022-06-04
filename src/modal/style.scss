@@ -110,7 +110,11 @@
     height: 50vh;
   }
 }
-
+@media (max-width:576px) {
+  .modal-login{
+    min-width: 90%;
+  }
+}
 .modal-upload{
   width: 500px;
   background-color: var(--bg-modal);

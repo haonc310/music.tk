@@ -8,6 +8,9 @@
   // border-radius: 6rem 0 0 6rem;
   box-sizing: border-box;
   z-index: 2;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   padding: 0 2rem;
   transition: 0.2s ease-in;
