@@ -1,11 +1,22 @@
 import React from 'react';
-import { UseMusic } from '../../hooks';
+import { UseMusic, UsePlaylist } from '../../hooks';
 import { MusicItem } from '../CardMusic';
 
 const WaitingList = () => {
   const { resultMusic } = UseMusic();
   const { dataRandom } = resultMusic;
-  if (!dataRandom.length) {
+
+  const { dataByIdPlayList } = UsePlaylist();
+  const dataByIdPlayListLength = dataByIdPlayList.length;
+  const dataRandomLength = dataRandom.length;
+
+  console.log({ dataByIdPlayList });
+
+  const data = React.useMemo(
+    () => (dataByIdPlayListLength ? dataByIdPlayList.map((item: any) => item.music) : dataRandom),
+    [dataByIdPlayList, dataByIdPlayListLength, dataRandom, dataRandomLength]
+  );
+  if (!data.length) {
     return (
       <div>
         <p className="heading-title">Không có bài viết nào</p>
@@ -14,12 +25,12 @@ const WaitingList = () => {
   }
   return (
     <div>
-      {dataRandom.map((music: any, index) => (
+      {data.map((music: any, index: any) => (
         <MusicItem
           key={index}
           index={index}
           music={music}
-          data={dataRandom}
+          data={data}
           _id={music._id}
           style={{
             width: '100%',

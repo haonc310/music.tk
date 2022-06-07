@@ -14,6 +14,7 @@ const resources = {
       'new-release': 'New release',
       favorite: 'Favorite',
       'music-title': 'Music',
+      'play-list-title':'Playlist',
       menu: {
         individual: 'Individual',
         discover: 'Discover',
@@ -36,6 +37,7 @@ const resources = {
       'new-release': 'Mới phát hành',
       favorite: 'Yêu thích',
       'music-title': 'Âm nhạc',
+      'play-list-title':'Danh sách playlist',
       menu: {
         individual: 'Cá nhân',
         discover: 'Khám phá',

@@ -7,6 +7,7 @@ import {
   onDropdownMusic,
   onNextPrevMusic,
   onRandomMusic,
+  addIdPlaylist,
 } from '../features/music/music-slice';
 import { musicStore } from '../hooks';
 
@@ -36,6 +37,7 @@ export const UseMusic = () => {
   const handleOnIndexMusic = (data: any) =>
     dispatch(addIndexMusic(data));
   const handleOnRandomMusic = () => dispatch(onRandomMusic());
+  const handleAddIdPlaylist = (id_playList: string) => dispatch(addIdPlaylist(id_playList));
 
   const handlePausePlayClick = React.useCallback(() => {
     if (playing) audio?.pause();

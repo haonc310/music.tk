@@ -9,7 +9,7 @@ import './other-dots.scss';
 
 const OtherDots = (props: any) => {
   const { toggle } = UseModal();
-  const { link_mv, src_music, name_music } = props;
+  const { link_mv, src_music, name_music, _id } = props;
   const menu = (
     <Menu>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
@@ -21,13 +21,23 @@ const OtherDots = (props: any) => {
             toggle({
               type: ModalTypeEnum.VIDEO_CLIP,
               link_mv,
+              _id,
             })
           }
         >
           Xem MV
         </span>
       </Menu.Item>
-      <Menu.Item icon={<HiOutlineDotsHorizontal />}>
+      <Menu.Item
+        icon={<HiOutlineDotsHorizontal />}
+        onClick={() => {
+          toggle({
+            type: ModalTypeEnum.ADD_LIST_MUSIC,
+            title: 'Thêm vào playlist',
+            _id,
+          });
+        }}
+      >
         <span>Thêm vào playlist</span>
       </Menu.Item>
     </Menu>

@@ -12,6 +12,7 @@ export enum ModalTypeEnum {
   NULL,
   OPEN_COMMENT,
   VIDEO_CLIP,
+  CREATE_LIST,
 }
 
 export const homeMenu = [

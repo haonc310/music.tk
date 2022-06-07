@@ -47,6 +47,7 @@ a {
   box-sizing: border-box;
   color: #000;
   --color-search: #fff;
+  --color:#000;
 }
 .App.dark {
   --bg-color: #092c3e;
@@ -64,6 +65,7 @@ a {
   );
   color: #fff;
   --color-search: #000;
+  --color:#fff;
 }
 .App.dark h1,
 .App.dark h2,

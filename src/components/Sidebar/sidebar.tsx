@@ -4,6 +4,7 @@ import { SiApachekafka } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import { UseToggle } from '../../hooks';
 import Menu from './menu';
+import PlayList from './play-list';
 import './sidebar.scss';
 
 export interface SidebarProps {
@@ -30,7 +31,7 @@ const Sidebar = (props: SidebarProps) => {
         </Link>
       </div>
       <Menu setDropdownMenu={setDropdownMenu}/>
-      
+      <PlayList/>
     </div>
   );
 };

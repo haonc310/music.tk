@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface MusicState {
   data: any;
   loading: true | false;
@@ -69,6 +69,9 @@ export const musicSlice = createSlice({
       state._id_music = state.dataRandom[random]._id;
       state.playing = true;
     },
+    addIdPlaylist: (state: MusicState, action: PayloadAction<string>) => {
+      state.id_playlist = action.payload;
+  },
   },
 });
 
@@ -80,5 +83,6 @@ export const {
   onDropdownMusic,
   onNextPrevMusic,
   onRandomMusic,
+  addIdPlaylist
 } = actions;
 export default reducer;

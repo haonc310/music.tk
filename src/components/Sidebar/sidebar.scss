@@ -84,6 +84,34 @@
       }
     }
   }
+  
+}
+.btn-create{
+  margin-left: 2rem;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  border: 1px solid var(--color);
+  max-width: 100px;
+  padding: .2rem 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.name-list{
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  &-item{
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover{
+      color: #1890ff;
+    }
+    span{
+      margin-left: .5rem;
+    }
+  }
 }
 .toggle {
   position: fixed;

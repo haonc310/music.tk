@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Favorite from '../pages/Favorite';
 import HomePage from '../pages/Home';
 import Listened from '../pages/Listened';
-import { UseAccount, UseMusic } from '../hooks';
+import { UseAccount, UseMusic, UsePlaylist } from '../hooks';
 import ApiPlayHistory from '../apis/api-play-history';
 
 const RouterControllers = () => {
@@ -13,10 +13,14 @@ const RouterControllers = () => {
   const { accessToken } = resultAccount;
   const { resultMusic } = UseMusic();
   const { _id_music } = resultMusic;
+  const { getPlaylistAPI } = UsePlaylist();
 
   useEffect(() => {
-    console.log({accessToken, accessTokenLocal})
+    console.log({ accessToken, accessTokenLocal });
     if (!accessToken && !accessTokenLocal) navigate('/');
+    if (accessToken && accessTokenLocal) {
+      getPlaylistAPI({});
+    }
   }, [accessToken, navigate]);
 
   useEffect(() => {

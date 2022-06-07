@@ -2,7 +2,9 @@ import clsx from 'clsx';
 import React, { useEffect } from 'react';
 import { ModalTypeEnum } from '../constants';
 import { UseAccount, UseModal } from '../hooks';
+import ModalAddPlayList from './modal-add-playlist';
 import ModalLogin from './modal-login';
+import ModalPlayList from './modal-play-list';
 import ModalRegister from './modal-register';
 import { ModalUploadMusic } from './modal-upload-music';
 import ModalVideo from './modal-video';
@@ -18,6 +20,10 @@ const checkModal = (modalType: ModalTypeEnum) => {
       return ModalVideo;
     case ModalTypeEnum.UPLOAD_MUSIC:
       return ModalUploadMusic;
+    case ModalTypeEnum.ADD_LIST_MUSIC:
+      return ModalPlayList;
+    case ModalTypeEnum.CREATE_LIST:
+      return ModalAddPlayList;
     default:
       return null;
   }
