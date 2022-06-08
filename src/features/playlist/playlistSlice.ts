@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { notification } from 'antd';
-import { addListMusic, createPlaylist, getByIdPlaylist, getPlaylist } from './patch-api';
+import { addListMusic, createPlaylist, deletePlaylist, editPlaylistName, getByIdPlaylist, getPlaylist } from './patch-api';
 export const initialStatePlayList: any = {
   data: [],
   pagination: {} as any,
@@ -107,7 +107,7 @@ const playlistSlice = createSlice({
           }
           state.loadingAddListMusic = false;
           notification.success({
-              message: `Đã thêm bài hát “${data.music.name_music}” vào “${state.nameList}” thành công`,
+              message: `Đã thêm bài hát “${data.music.name_music}” vào playList thành công`,
               placement: "topLeft",
           });
       })
@@ -115,6 +115,51 @@ const playlistSlice = createSlice({
           state.loadingAddListMusic = false;
           notification.error({
               message: "Thêm vào playlist thất bại!",
+              placement: "topLeft",
+          });
+      });
+      // edit playlist name
+      builder
+      .addCase(editPlaylistName.pending, (state) => {
+          state.loadingCreatePlaylist = true;
+      })
+      .addCase(editPlaylistName.fulfilled, (state, action) => {
+          const { data } = action.payload;
+          const index = state.data.findIndex((item: any) => item._id === data._id);
+          if (index !== -1) state.data[index] = data;
+          state.loadingCreatePlaylist = false;
+          notification.success({
+              message: `Playlist “${data.name_list}” đổi thành công`,
+              placement: "topLeft",
+          });
+      })
+      .addCase(editPlaylistName.rejected, (state) => {
+          state.loadingCreatePlaylist = false;
+          notification.success({
+              message: "Đổi tên không thành công",
+              placement: "topLeft",
+          });
+      });
+      // delete playlist
+      builder
+      .addCase(deletePlaylist.pending, (state, action) => {
+          const { meta } = action;
+          state.id_playlist = meta.arg._id;
+          state.loadingAddListMusic = true;
+      })
+      .addCase(deletePlaylist.fulfilled, (state, action) => {
+          const { data } = action.payload;
+          const index = state.data.findIndex((item: any) => item._id === data._id);
+          if (index !== -1) state.data.splice(index, 1);
+          notification.success({
+              message: `Playlist “${data.name_list}” xóa thành công`,
+              placement: "topLeft",
+          });
+      })
+      .addCase(deletePlaylist.rejected, (state) => {
+          state.loadingAddListMusic = false;
+          notification.error({
+              message: "Xóa playlist thất bại!",
               placement: "topLeft",
           });
       });

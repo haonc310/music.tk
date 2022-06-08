@@ -26,6 +26,8 @@ const modalSlice = createSlice({
       state.open = false;
       state.type = '';
       state.title = '';
+      state.others=''
+      state._id=''
     },
   },
 });

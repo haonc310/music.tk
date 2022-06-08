@@ -1,0 +1,42 @@
+.sidebar-right-name-list{
+    color: var(--color);
+    font-size: 2rem;
+    
+    &-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        &:hover{
+            .sidebar-right-name-list-item{
+                color:#1890ff ;
+            }
+        }
+        &-left{
+            display: flex;
+            align-items: center;
+            span{
+                margin-left: 1rem;
+            }
+        }
+        &-right{
+            display: none;
+            div{
+                margin: 0 .5rem;
+            }
+        }
+        &:hover{
+            &-right{
+                display: block;
+            }
+        }
+    }
+}
+
+.sidebar-right-name-list-item:hover .sidebar-right-name-list-item-left {
+    color: #1890ff;
+}
+.sidebar-right-name-list-item:hover .sidebar-right-name-list-item-right{
+    display: flex;
+}

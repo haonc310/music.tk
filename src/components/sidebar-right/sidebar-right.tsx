@@ -1,11 +1,10 @@
 import { Tabs } from 'antd';
 import clsx from 'clsx';
+import { MdMoreHoriz } from 'react-icons/md';
 import { UsePlaylist } from '../../hooks';
+import PlayListRight from '../play-list-siderbar-right/playlist-right';
 import WaitingList from '../waitinglist/waiting-list';
 import './sidebar-right.scss';
-import { MdMoreHoriz } from 'react-icons/md';
-import { HiOutlineArrowLeft } from 'react-icons/hi';
-import HistoryList from '../history-list/history-list';
 const { TabPane } = Tabs;
 
 const SidebarRight = () => {
@@ -35,17 +34,10 @@ const SidebarRight = () => {
             </TabPane>
             <TabPane
               style={{ height: '100%', padding: '20px' }}
-              tab={<h5 className="text-white mb-0">Nghe gần đây</h5>}
-              key="2"
-            >
-              <HistoryList />
-            </TabPane>
-            <TabPane
-              style={{ height: '100%', padding: '20px' }}
               tab={<h5 className="text-white mb-0">Danh sách phát playList</h5>}
               key="3"
             >
-              <WaitingList />
+              <PlayListRight />
             </TabPane>
           </Tabs>
         </div>

@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { ModalTypeEnum } from '../constants';
 import { UseAccount, UseModal } from '../hooks';
 import ModalAddPlayList from './modal-add-playlist';
+import ModalDeletePlayList from './modal-delete-playlist';
+import ModalEditPlayList from './modal-edit-playlist';
 import ModalLogin from './modal-login';
 import ModalPlayList from './modal-play-list';
 import ModalRegister from './modal-register';
@@ -24,6 +26,10 @@ const checkModal = (modalType: ModalTypeEnum) => {
       return ModalPlayList;
     case ModalTypeEnum.CREATE_LIST:
       return ModalAddPlayList;
+    case ModalTypeEnum.EDIT_PLAYLIST:
+      return ModalEditPlayList;
+    case ModalTypeEnum.DELETE_PLAYLIST:
+      return ModalDeletePlayList;
     default:
       return null;
   }

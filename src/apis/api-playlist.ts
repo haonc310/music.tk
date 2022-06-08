@@ -18,6 +18,14 @@ const apiPlayList = {
         const url = "list-music/add-list-music";
         return axiosClient.put(url, params);
     },
+    editPlaylistName(data: any): Promise<any> {
+        const url = "list-music/update-name-list-music";
+        return axiosClient.put(url, data);
+    },
+    deleteListMusic(params: any): Promise<any> {
+        const url = "list-music/delete-list-music";
+        return axiosClient.delete(url, { params });
+    },
 }
 
 export default apiPlayList

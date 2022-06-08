@@ -10,3 +10,4 @@ export const getPlayHistory = createAsyncThunk('play-history/get-by-token', asyn
   const response = await ApiPlayHistory.getPlayHistory(params);
   return response;
 });
+
