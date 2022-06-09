@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { notification } from 'antd';
-import { addListMusic, createPlaylist, deletePlaylist, editPlaylistName, getByIdPlaylist, getPlaylist } from './patch-api';
+import { addListMusic, createPlaylist, deleteMusicPlaylist, deletePlaylist, editPlaylistName, getByIdPlaylist, getPlaylist } from './patch-api';
 export const initialStatePlayList: any = {
   data: [],
   pagination: {} as any,
@@ -160,6 +160,28 @@ const playlistSlice = createSlice({
           state.loadingAddListMusic = false;
           notification.error({
               message: "Xóa playlist thất bại!",
+              placement: "topLeft",
+          });
+      });
+      // delete music
+      builder
+      .addCase(deleteMusicPlaylist.pending, (state) => {
+          state.loadingDeleteMusic = true;
+      })
+      .addCase(deleteMusicPlaylist.fulfilled, (state, action) => {
+          const { data } = action.payload;
+          const index = state.dataByIdPlayList.findIndex((item: any) => item.id_music === data.id_music);
+          if (index !== -1) state.dataByIdPlayList.splice(index, 1);
+          state.loadingDeleteMusic = false;
+          notification.success({
+              message: `Đã xóa bài hát “${data.music.name_music}” khỏi “${state.nameList}” thành công`,
+              placement: "topLeft",
+          });
+      })
+      .addCase(deleteMusicPlaylist.rejected, (state) => {
+          state.loadingDeleteMusic = false;
+          notification.success({
+              message: "Xóa không thành công",
               placement: "topLeft",
           });
       });

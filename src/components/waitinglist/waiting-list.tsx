@@ -27,6 +27,7 @@ const WaitingList = () => {
     <div>
       {data.map((music: any, index: any) => (
         <MusicItem
+          check={dataByIdPlayListLength ? true : false}
           key={index}
           index={index}
           music={music}

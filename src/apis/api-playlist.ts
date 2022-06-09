@@ -26,6 +26,10 @@ const apiPlayList = {
         const url = "list-music/delete-list-music";
         return axiosClient.delete(url, { params });
     },
+    deleteMusic(params: any): Promise<any> {
+        const url = "list-music/delete-music";
+        return axiosClient.delete(url, { params });
+    },
 }
 
 export default apiPlayList

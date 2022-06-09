@@ -4,12 +4,15 @@ import { saveAs } from 'file-saver';
 import React from 'react';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { ModalTypeEnum } from '../../constants';
-import { UseModal } from '../../hooks';
+import { UseModal, UsePlaylist } from '../../hooks';
 import './other-dots.scss';
 
 const OtherDots = (props: any) => {
   const { toggle } = UseModal();
-  const { link_mv, src_music, name_music, _id } = props;
+  const { link_mv, src_music, name_music, _id, check = false } = props;
+  const { handleDeleteMusicPlaylist, resultPlaylist } = UsePlaylist();
+
+  const { id_playlist_old } = resultPlaylist;
   const menu = (
     <Menu>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
@@ -40,6 +43,16 @@ const OtherDots = (props: any) => {
       >
         <span>Thêm vào playlist</span>
       </Menu.Item>
+      {check && (
+        <Menu.Item
+          icon={<HiOutlineDotsHorizontal />}
+          onClick={() => {
+            handleDeleteMusicPlaylist({ _id: id_playlist_old, _id_music: _id });
+          }}
+        >
+          <span>Xóa khỏi playlist</span>
+        </Menu.Item>
+      )}
     </Menu>
   );
 

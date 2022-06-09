@@ -3,6 +3,7 @@ import { playlistStore, useAppDispatch, useAppSelector } from '.';
 import {
   addListMusic,
   createPlaylist,
+  deleteMusicPlaylist,
   deletePlaylist,
   editPlaylistName,
   getByIdPlaylist,
@@ -34,7 +35,11 @@ export const UsePlaylist = () => {
   const handleDeletePlaylist = useCallback(
     (params: any) => dispatch(deletePlaylist(params)),
     [dispatch]
-);
+  );
+  const handleDeleteMusicPlaylist = useCallback(
+    (params: any) => dispatch(deleteMusicPlaylist(params)),
+    [dispatch]
+  );
 
   const handleAddListMusic = useCallback((data: any) => dispatch(addListMusic(data)), [dispatch]);
 
@@ -52,6 +57,6 @@ export const UsePlaylist = () => {
     dataByIdPlayList,
     handleAddListMusic,
     handleEditPlaylistName,
-    handleDeletePlaylist
+    handleDeletePlaylist,handleDeleteMusicPlaylist
   };
 };

@@ -27,3 +27,7 @@ export const editPlaylistName = createAsyncThunk("list-music/update-name-list-mu
     const response = await apiPlayList.deleteListMusic(params);
     return response;
 });
+export const deleteMusicPlaylist = createAsyncThunk("list-music/delete-music", async (params: any) => {
+    const response = await apiPlayList.deleteMusic(params);
+    return response;
+});
