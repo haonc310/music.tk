@@ -30,7 +30,7 @@ const PlayList = () => {
               })
             }
           >
-            Tạo playlist
+            {t('create-playlist')}
           </div>
           <div className="name-list">
             {data.map((item: any) => {

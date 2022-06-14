@@ -3,13 +3,16 @@ import { RiUpload2Line } from 'react-icons/ri';
 import { UseAccount } from '../../hooks';
 import { ModalTypeEnum } from '../../constants';
 import { UseModal } from '../../hooks';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 export const ProfileUser = () => {
+  const { t } = useTranslation();
   const { handleLogout } = UseAccount();
   const { toggle } = UseModal();
   const menu = (
     <Menu>
       <Menu.Item>
-        <span onClick={handleLogout}>Đăng xuất</span>
+        <span onClick={handleLogout}>{t('logout')}</span>
       </Menu.Item>
     </Menu>
   );

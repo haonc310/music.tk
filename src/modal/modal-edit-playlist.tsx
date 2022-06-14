@@ -43,7 +43,7 @@ const ModalEditPlayList = () => {
   return (
     <div className="modal-login" onClick={(event) => event.stopPropagation()}>
       <div className="modal-login-header">
-        <h3>Sửa PlayList</h3>
+        <h3>{t('edit-playlist')}</h3>
       </div>
       <div>
         <form className="modal-login-form" action="" onSubmit={handleSubmit(handleSubmitForm)}>
@@ -56,7 +56,7 @@ const ModalEditPlayList = () => {
           />
 
           <div className="modal-login-group">
-            <button type="submit">Save</button>
+            <button type="submit">{t('save')}</button>
           </div>
         </form>
       </div>

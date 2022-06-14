@@ -1,8 +1,11 @@
+import { t } from 'i18next';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MdQueueMusic } from 'react-icons/md';
 import { UseModal, UsePlaylist } from '../hooks';
 
 const ModalPlayList = () => {
+  const { t } = useTranslation();
   const { getPlaylistAPI, resultPlaylist, handleAddListMusic } = UsePlaylist();
   const { resultModal } = UseModal();
   console.log({ resultModal });
@@ -14,7 +17,7 @@ const ModalPlayList = () => {
   return (
     <div className="modal-login" onClick={(event) => event.stopPropagation()}>
       <div className="modal-login-header">
-        <h3>Danh sách PlayList</h3>
+        <h3>{t('play-list-title')}</h3>
       </div>
       <div className="name-list">
         {data.map((item: any) => {

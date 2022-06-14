@@ -12,7 +12,7 @@ export const Login = () => {
       onClick={() => {
         toggle({
           type: ModalTypeEnum.LOGIN,
-          title: 'Đăng nhập',
+          title: t('login'),
         });
       }}
     >

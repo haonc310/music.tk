@@ -27,7 +27,7 @@ const ModalAddPlayList = () => {
   return (
     <div className="modal-login" onClick={(event) => event.stopPropagation()}>
       <div className="modal-login-header">
-        <h3>Tạo PlayList</h3>
+        <h3>{t('create-playlist')}</h3>
       </div>
       <div>
         <form className="modal-login-form" action="" onSubmit={handleSubmit(handleSubmitForm)}>
@@ -40,7 +40,7 @@ const ModalAddPlayList = () => {
           />
 
           <div className="modal-login-group">
-            <button type="submit">Tạo</button>
+            <button type="submit">{t('create-playlist')}</button>
           </div>
         </form>
       </div>

@@ -1,4 +1,5 @@
 import { notification } from 'antd';
+import { t } from 'i18next';
 import { useCallback, useEffect } from 'react';
 import { ModalTypeEnum } from '../constants';
 import { createFavorite, getFavorite } from '../features/favorite-account/patch-api';
@@ -19,7 +20,7 @@ export const UseFavoriteAccount = () => {
         notification.info({message: 'Vui lòng đăng nhập',})
         toggle({
           type: ModalTypeEnum.LOGIN,
-          title: 'Đăng nhập',
+          title: t('login'),
         });
       }
       accessToken && dispatch(createFavorite(data))

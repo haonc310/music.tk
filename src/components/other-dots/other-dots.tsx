@@ -1,13 +1,16 @@
 import { Dropdown, Menu } from 'antd';
 import clsx from 'clsx';
 import { saveAs } from 'file-saver';
+import { t } from 'i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { ModalTypeEnum } from '../../constants';
 import { UseModal, UsePlaylist } from '../../hooks';
 import './other-dots.scss';
 
 const OtherDots = (props: any) => {
+  const { t } = useTranslation();
   const { toggle } = UseModal();
   const { link_mv, src_music, name_music, _id, check = false } = props;
   const { handleDeleteMusicPlaylist, resultPlaylist } = UsePlaylist();
@@ -16,7 +19,7 @@ const OtherDots = (props: any) => {
   const menu = (
     <Menu>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
-        <span onClick={() => saveAs(src_music, `${name_music}.mp3`)}>Tải xuống</span>
+        <span onClick={() => saveAs(src_music, `${name_music}.mp3`)}>{t('download')}</span>
       </Menu.Item>
       <Menu.Item icon={<HiOutlineDotsHorizontal />}>
         <span
@@ -28,7 +31,7 @@ const OtherDots = (props: any) => {
             })
           }
         >
-          Xem MV
+          {t('mv')}
         </span>
       </Menu.Item>
       <Menu.Item
@@ -41,7 +44,7 @@ const OtherDots = (props: any) => {
           });
         }}
       >
-        <span>Thêm vào playlist</span>
+        <span>{t('add-playlist')}</span>
       </Menu.Item>
       {check && (
         <Menu.Item
@@ -50,7 +53,7 @@ const OtherDots = (props: any) => {
             handleDeleteMusicPlaylist({ _id: id_playlist_old, _id_music: _id });
           }}
         >
-          <span>Xóa khỏi playlist</span>
+          <span>{t('remove-playlist')}</span>
         </Menu.Item>
       )}
     </Menu>

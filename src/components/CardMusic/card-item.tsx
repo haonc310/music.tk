@@ -1,4 +1,6 @@
+import { t } from 'i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { AiFillHeart, AiOutlinePlayCircle } from 'react-icons/ai';
 import { CgPlayPauseO } from 'react-icons/cg';
 import { MdFavoriteBorder } from 'react-icons/md';
@@ -9,6 +11,7 @@ import OtherDots from '../other-dots/other-dots';
 import './style.scss';
 
 const CardItem = ({ music, data, index, _id }: any) => {
+  const { t } = useTranslation();
   const { resultAccount } = UseAccount();
   const { accessToken } = resultAccount;
   const formatView = new Intl.NumberFormat('vn');
@@ -61,11 +64,13 @@ const CardItem = ({ music, data, index, _id }: any) => {
         <p className="card-author">{music.name_singer || 'unknown'}</p>
         <p className="card-view">
           <RiEyeLine />
-          <span>{music.view && formatView.format(music.view)} lượt xem</span>
+          <span>
+            {music.view && formatView.format(music.view)} {t('view')}
+          </span>
         </p>
         <p className="card-like">
           <MdFavoriteBorder />
-          <span>{music.favorite && formatView.format(music.favorite)} lượt thích</span>
+          <span>{music.favorite && `${formatView.format(music.favorite)} ${t('like')}`}</span>
         </p>
       </div>
       <div className="card-timer">

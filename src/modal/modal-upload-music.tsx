@@ -7,12 +7,19 @@ import { BsMusicNoteList } from 'react-icons/bs';
 import { BsMusicPlayerFill } from 'react-icons/bs';
 import { FiYoutube } from 'react-icons/fi';
 import { useUploadMusic } from '../hooks';
+import { useTranslation } from 'react-i18next';
 
 export const ModalUploadMusic = () => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
 
-  const { newImage, handleUploadMusicImage, handleUploadMusicSource, handlePostUploadMusic, loadingUploadMusic } =
-    useUploadMusic();
+  const {
+    newImage,
+    handleUploadMusicImage,
+    handleUploadMusicSource,
+    handlePostUploadMusic,
+    loadingUploadMusic,
+  } = useUploadMusic();
 
   return (
     <div className="modal-upload" onClick={(event) => event.stopPropagation()}>
@@ -40,7 +47,7 @@ export const ModalUploadMusic = () => {
             className="h-[35px]"
           />
         </Form.Item> */}
-        <h4 className=" text-white">Tên nghệ sĩ</h4>
+        <h4 className=" text-white">{t('name-singer')}</h4>
         <Form.Item
           name="name_singer"
           rules={[
@@ -59,11 +66,11 @@ export const ModalUploadMusic = () => {
         >
           <Input
             prefix={<BsMic className="icon-input" />}
-            placeholder="Nghệ sĩ"
+            placeholder={t('name-singer')}
             className="h-[35px]"
           />
         </Form.Item>
-        <h4 className=" text-white">Tên thể loại</h4>
+        <h4 className=" text-white">{t('name-category')}</h4>
         <Form.Item
           name="category"
           rules={[
@@ -82,7 +89,7 @@ export const ModalUploadMusic = () => {
         >
           <Input
             prefix={<BsMusicPlayerFill className="icon-input" />}
-            placeholder="Thể loại"
+            placeholder={t('name-category')}
             className="h-[35px]"
           />
         </Form.Item>
@@ -159,7 +166,7 @@ export const ModalUploadMusic = () => {
             style={{ height: '35px', marginTop: '10px' }}
             loading={loadingUploadMusic}
           >
-            Tải nhạc lên
+            {t('upload-music')}
           </Button>
         </Form.Item>
       </Form>
