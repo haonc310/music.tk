@@ -67,6 +67,8 @@ export const bannerDefault = [
 // https://music-web-production.up.railway.app/api
 
 //https://api-music-production-83d8.up.railway.app/api/
-export const REACT_APP_API_URL = 'http://localhost:5000/api';
+export const REACT_APP_API_URL = 'https://da23-118-71-204-229.ap.ngrok.io/api';
+//http://localhost:5000/api
+//https://da23-118-71-204-229.ap.ngrok.io
 export const CLINT_ID_GOOGLE =
   '147148304416-51hpf6le8b4q73jp3qpg9hvopvp32hbb.apps.googleusercontent.com';
